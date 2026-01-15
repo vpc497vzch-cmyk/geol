@@ -28,3 +28,37 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* Small circular info icon used in docs */
+.info-circle {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  line-height: 18px;
+  cursor: help;
+  margin-left: 8px;
+}
+
+.info-circle[title] {
+  /* ensure native tooltip appears on hover */
+}
+
+/* Hide info icons in sidebars / table of contents, keep them in main content */
+/* Specific selectors to cover common Docusaurus sidebar / TOC containers */
+.table-of-contents .info-circle,
+.toc .info-circle,
+.menu__link .info-circle,
+.theme-doc-sidebar .info-circle,
+.docs-toc .info-circle {
+  display: none !important;
+}
+
+/* Ensure icons inside the page content remain visible */
+.theme-doc-markdown .info-circle {
+  display: inline-block !important;
+}

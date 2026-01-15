@@ -1,0 +1,129 @@
+% Squelette de rapport de stage
+% Compilation recommandée : pdflatex -> biber -> pdflatex -> pdflatex
+
+\documentclass[12pt,a4paper]{report}
+
+% --- Encodage et langue ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+
+% --- Mise en page ---
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{microtype}
+
+% --- Figures, tableaux, math ---
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb}
+
+% --- Entêtes / pieds de page ---
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\leftmark}
+\fancyhead[RE,LO]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% --- Liens hypertexte ---
+\usepackage[colorlinks=true,linkcolor=black,citecolor=blue,urlcolor=blue]{hyperref}
+
+% --- Commandes utiles ---
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+% --- Document ---
+\title{Création d'un site web pour geol}
+\author{Kelyan TAHARIA\\OPT - NC | UNC\\Encadrant : Adrien SALES}
+\date{Janvier 2026}
+
+\begin{document}
+
+% Page de garde personnalisée
+\begin{titlepage}
+  \centering
+  {\scshape\LARGE UNC | OPT - NC \par}
+  \vspace{1.5cm}
+  {\huge\bfseries Création d'un site web pour geol \par}
+  \vspace{1.5cm}
+  {\Large Kelyan TAHARIA \par}
+  \vfill
+  Encadrant : Adrien SALES \\
+  OPT - NC | UNC, \today
+  \vspace{1cm}
+  \HRule
+\end{titlepage}
+
+% Résumé
+\begin{abstract}
+  \noindent Un court résumé en français (180--250 mots) présentant le contexte, les objectifs, la méthode et les résultats principaux.
+\end{abstract}
+
+% Remerciements
+\cleardoublepage
+\chapter*{Remerciements}
+\addcontentsline{toc}{chapter}{Remerciements}
+Remerciements et crédits.
+
+% Table des matières et listes
+\cleardoublepage
+\tableofcontents
+\cleardoublepage
+\listoffigures
+\listoftables
+
+% --- Corps du rapport ---
+\cleardoublepage
+\chapter{Introduction}
+\section{Contexte général}
+Je suis étudiant en deuxième année de la filière CUPGE MP. Du 19 janvier au 8 février 2026, j'effectue un stage à l'Office des Postes et Télécommunications de Nouvelle-Calédonie (OPT-NC). Mon objectif durant ce stage est d'améliorer le site présentant le logiciel Geol, en le rendant plus accessible et attractif pour un large public.
+
+\section{Problématique}
+N'ayant pas de connaissances approfondies en informatique, ma problématique est la suivante : est-il possible, même sans compétences techniques, de concevoir et proposer un site web à la fois ludique et ergonomique en s'appuyant sur l'intelligence artificielle pour compenser le manque d'expertise ?
+
+\section{Objectifs}
+Les objectifs du stage sont les suivants : partir d'un squelette de site et le transformer en un site très ludique, de sorte qu'une personne sans connaissance en informatique puisse installer et utiliser correctement geol. Présenter geol (un logiciel complexe mais indispensable) de manière claire et accessible pour tous. Optionnel : positionner le site comme site officiel de geol.
+
+\chapter{État de l'art / Contexte technique}
+\section{Travaux et références existants}
+
+\chapter{Travaux réalisés}
+\section{Méthodologie}
+Décrire la méthode, outils, et étapes réalisées.
+
+\section{Implémentation / Développements}
+Détails techniques, architecture, choix réalisés.
+
+\chapter{Résultats}
+Présenter les résultats obtenus, tableaux et figures.
+
+\chapter{Analyse et discussion}
+Interprétation des résultats et limites.
+
+\chapter{Conclusion et perspectives}
+Synthèse et pistes pour continuer le travail.
+
+% --- Annexes ---
+\appendix
+\chapter{Annexe A}
+Éléments complémentaires (ex : code, données, commandes).
+
+% --- Références ---
+% Références gérées manuellement. Si vous souhaitez réactiver la
+% bibliographie automatique, réajoutez \usepackage{biblatex} et
+% \addbibresource{bibliography.bib} puis restaurez l'appel à biber
+% dans le `Taskfile.yml`.
+\cleardoublepage
+\chapter*{Références}
+\addcontentsline{toc}{chapter}{Références}
+
+\begin{thebibliography}{9}
+\bibitem{geol}
+OPT-NC, "geol — Repository for the geol project", GitHub, \url{https://github.com/opt-nc/geol}. Accessed 5 janvier 2026.
+\bibitem{adriens_managing_eols}
+adriens, "Managing EOLs w/ geol — The impossible 1-mux demo (CNL)", Dev.to, \url{https://dev.to/adriens/managing-eols-w-geol-the-impossible-1-mux-demo-cnl}. Accessed 5 janvier 2026.
+\end{thebibliography}
+
+\end{document}

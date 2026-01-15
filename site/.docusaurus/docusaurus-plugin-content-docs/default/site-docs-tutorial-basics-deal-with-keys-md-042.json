@@ -1,7 +1,7 @@
 {
   "id": "tutorial-basics/deal-with-keys",
   "title": "Know endoflife.date keys",
-  "description": "There are a lot of keys...",
+  "description": "There are a lot of keys used by endoflife.date; they map products to metadata such as versions, release dates and end-of-life dates.",
   "source": "@site/docs/tutorial-basics/deal-with-keys.md",
   "sourceDirName": "tutorial-basics",
   "slug": "/tutorial-basics/deal-with-keys",
