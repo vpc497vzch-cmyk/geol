@@ -6,7 +6,7 @@
 export default {
   "title": "geol",
   "tagline": "Software End Of Life management is too important to be  boring ",
-  "favicon": "img/favicon.ico",
+  "favicon": "img/logo-no-name-gradient.png",
   "future": {
     "v4": {
       "removeLegacyPostBuildHeadAttribute": true,
@@ -30,8 +30,8 @@ export default {
   },
   "url": "https://your-docusaurus-site.example.com",
   "baseUrl": "/",
-  "organizationName": "facebook",
-  "projectName": "docusaurus",
+  "organizationName": "opt-nc",
+  "projectName": "geol",
   "onBrokenLinks": "throw",
   "i18n": {
     "defaultLocale": "en",
@@ -46,8 +46,7 @@ export default {
       "classic",
       {
         "docs": {
-          "sidebarPath": "./sidebars.js",
-          "editUrl": "https://github.com/opt-nc/geol"
+          "sidebarPath": "/home/kelthr/Github/geol/site/sidebars.js"
         },
         "blog": {
           "showReadingTime": true,
@@ -64,7 +63,7 @@ export default {
           "onUntruncatedBlogPosts": "warn"
         },
         "theme": {
-          "customCss": "./src/css/custom.css"
+          "customCss": "/home/kelthr/Github/geol/site/src/css/custom.css"
         }
       }
     ]
@@ -84,15 +83,29 @@ export default {
       },
       "items": [
         {
-          "type": "docSidebar",
-          "sidebarId": "tutorialSidebar",
-          "position": "left",
-          "label": "Tutorial"
+          "to": "/search",
+          "label": "Search",
+          "position": "right"
         },
         {
-          "to": "/blog",
-          "label": "Blog",
-          "position": "left"
+          "label": "Menu",
+          "position": "left",
+          "className": "left-panel-dropdown",
+          "items": [
+            {
+              "type": "docSidebar",
+              "sidebarId": "tutorialSidebar",
+              "label": "Tutorial"
+            },
+            {
+              "to": "/releases",
+              "label": "Releases"
+            },
+            {
+              "to": "/blog",
+              "label": "Blog"
+            }
+          ]
         },
         {
           "href": "https://github.com/opt-nc/geol",
@@ -111,6 +124,10 @@ export default {
             {
               "label": "Tutorial",
               "to": "/docs/intro"
+            },
+            {
+              "label": "Releases",
+              "to": "/releases"
             }
           ]
         },

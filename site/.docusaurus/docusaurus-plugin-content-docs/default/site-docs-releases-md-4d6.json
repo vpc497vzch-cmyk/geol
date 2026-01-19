@@ -1,0 +1,23 @@
+{
+  "id": "releases",
+  "title": "Releases",
+  "description": "This page records releases (new versions) and a short summary of changes.",
+  "source": "@site/docs/releases.md",
+  "sourceDirName": ".",
+  "slug": "/releases",
+  "permalink": "/docs/releases",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/opt-nc/geol/docs/releases.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Data Engineering with geol",
+    "permalink": "/docs/tutorial-extras/dataengineering"
+  }
+}

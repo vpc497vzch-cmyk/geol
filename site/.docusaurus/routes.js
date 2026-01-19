@@ -78,6 +78,16 @@ export default [
     exact: true
   },
   {
+    path: '/releases',
+    component: ComponentCreator('/releases', 'ee2'),
+    exact: true
+  },
+  {
+    path: '/search',
+    component: ComponentCreator('/search', 'b65'),
+    exact: true
+  },
+  {
     path: '/docs',
     component: ComponentCreator('/docs', 'be0'),
     routes: [

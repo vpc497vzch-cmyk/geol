@@ -8,7 +8,7 @@ You have just learned the **basics of `geol`**
 
 `geol` has **much more to offer**!
 
-Have **5 more minutes**? Take a look at ...
+Have **5 more minutes**? Take a look at Tutorial extras
 
 Anything **unclear** or **buggy** in this tutorial? [Please report it!](https://github.com/opt-nc/geol)
 

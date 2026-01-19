@@ -8,7 +8,6 @@
   "permalink": "/docs/tutorial-basics/deal-with-keys",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://github.com/opt-nc/geol/docs/tutorial-basics/deal-with-keys.md",
   "tags": [],
   "version": "current",
   "sidebarPosition": 1,
@@ -21,7 +20,7 @@
     "permalink": "/docs/category/tutorial---basics"
   },
   "next": {
-    "title": "Reporting products with...",
+    "title": "Reporting products with geol",
     "permalink": "/docs/tutorial-basics/reporting-in-termial"
   }
 }

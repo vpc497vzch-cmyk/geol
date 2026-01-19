@@ -8,7 +8,6 @@
   "permalink": "/docs/tutorial-basics/check-command",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://github.com/opt-nc/geol/docs/tutorial-basics/check-command.md",
   "tags": [],
   "version": "current",
   "sidebarPosition": 3,
@@ -17,7 +16,7 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Reporting products with...",
+    "title": "Reporting products with geol",
     "permalink": "/docs/tutorial-basics/reporting-in-termial"
   },
   "next": {

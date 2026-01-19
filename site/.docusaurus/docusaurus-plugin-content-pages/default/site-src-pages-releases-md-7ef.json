@@ -1,0 +1,11 @@
+{
+  "type": "mdx",
+  "permalink": "/releases",
+  "source": "@site/src/pages/releases.md",
+  "title": "Releases",
+  "description": "v2.5.1 — 2026-01-07",
+  "frontMatter": {
+    "title": "Releases"
+  },
+  "unlisted": false
+}

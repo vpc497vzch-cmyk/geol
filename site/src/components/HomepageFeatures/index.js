@@ -4,8 +4,14 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: '',
+    Svg: (props) => (
+      <img
+        {...props}
+        src={require('@site/static/img/Easy to use.png').default}
+        alt="Easy to use"
+      />
+    ),
     description: (
       <>
         <code>geol</code> was designed be easily installed and
@@ -42,8 +48,10 @@ function Feature({Svg, title, description}) {
       <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
+      <div className={clsx('text--center padding-horiz--md', !title && styles.noTitle)}>
+        <Heading as="h3" style={{visibility: title ? 'visible' : 'hidden'}} aria-hidden={!title}>
+          {title || ' '}
+        </Heading>
         <p>{description}</p>
       </div>
     </div>

@@ -5,6 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
+    "prebuild": "node ./scripts/generate-search-index.js",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -21,7 +22,8 @@
     "docusaurus": "^1.14.7",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "fuse.js": "^6.6.2"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.9.2",

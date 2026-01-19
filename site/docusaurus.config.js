@@ -6,35 +6,24 @@
 
 import {themes as prismThemes} from 'prism-react-renderer';
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'geol',
   tagline: 'Software End Of Life management is too important to be  boring ',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/logo-no-name-gradient.png',
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true,
   },
 
-  // Set the production url of your site here
   url: 'https://your-docusaurus-site.example.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'opt-nc',
+  projectName: 'geol',
 
   onBrokenLinks: 'throw',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -43,119 +32,65 @@ const config = {
   presets: [
     [
       'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      /** @type {import('@docusaurus/preset-classic').Options} */ ({
         docs: {
-          sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/opt-nc/geol',
+          sidebarPath: require.resolve('./sidebars.js'),
         },
         blog: {
           showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/opt-nc/geol',
-          // Useful options to enforce blogging best practices
+          feedOptions: { type: ['rss', 'atom'], xslt: true },
+          editUrl: 'https://github.com/opt-nc/geol',
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: require.resolve('./src/css/custom.css'),
         },
       }),
     ],
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      // Replace with your project's social card
+    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */ ({
       image: 'img/docusaurus-social-card.jpg',
-      colorMode: {
-        respectPrefersColorScheme: true,
-      },
+      colorMode: { respectPrefersColorScheme: true },
       navbar: {
         title: 'geol',
-        logo: {
-          alt: 'geol Logo',
-          src: 'img/logo-no-name-gradient.png',
-        },
+        logo: { alt: 'geol Logo', src: 'img/logo-no-name-gradient.png' },
         items: [
+          { to: '/search', label: 'Search', position: 'right' },
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            label: 'Menu',
             position: 'left',
-            label: 'Tutorial',
+            className: 'left-panel-dropdown',
+            items: [
+                { type: 'docSidebar', sidebarId: 'tutorialSidebar', label: 'Tutorial' },
+                { to: '/releases', label: 'Releases' },
+                { to: '/blog', label: 'Blog' },
+              ],
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/opt-nc/geol',
-            label: 'GitHub',
-            position: 'right',
-          },
+          { href: 'https://github.com/opt-nc/geol', label: 'GitHub', position: 'right' },
         ],
       },
       footer: {
         style: 'dark',
         links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
+          { title: 'Docs', items: [{ label: 'Tutorial', to: '/docs/intro' }, { label: 'Releases', to: '/releases' }] },
           {
             title: 'Community',
             items: [
-              {
-                label: 'YouTube Playlist',
-                href: 'https://www.youtube.com/playlist?list=PL7GdrgVAWcDhTeW8rjUCZVp2Mic1fx-j9',
-              },
-              {
-                label: 'geol DEV.to series',
-                href: 'https://dev.to/adriens/series/34740',
-              },
-              {
-                label: 'endoflife.date DEV.to Series',
-                href: 'https://dev.to/adriens/series/21232',
-              },
-              {
-                label: 'Project kanban',
-                href: 'https://github.com/orgs/opt-nc/projects/28',
-              },
+              { label: 'YouTube Playlist', href: 'https://www.youtube.com/playlist?list=PL7GdrgVAWcDhTeW8rjUCZVp2Mic1fx-j9' },
+              { label: 'geol DEV.to series', href: 'https://dev.to/adriens/series/34740' },
+              { label: 'endoflife.date DEV.to Series', href: 'https://dev.to/adriens/series/21232' },
+              { label: 'Project kanban', href: 'https://github.com/orgs/opt-nc/projects/28' },
             ],
           },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/opt-nc/geol',
-              },
-            ],
-          },
+          { title: 'More', items: [{ label: 'Blog', to: '/blog' }, { label: 'GitHub', href: 'https://github.com/opt-nc/geol' }] },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
       },
-      prism: {
-        theme: prismThemes.github,
-        darkTheme: prismThemes.dracula,
-      },
+      prism: { theme: prismThemes.github, darkTheme: prismThemes.dracula },
     }),
 };
 

@@ -62,3 +62,72 @@
 .theme-doc-markdown .info-circle {
   display: inline-block !important;
 }
+
+/* Left sliding panel for menu triggered by hovering logo/brand */
+.left-panel-dropdown {
+  /* ensure dropdown anchor doesn't take extra space */
+}
+.left-panel-dropdown .dropdown__menu,
+.left-panel-dropdown .dropdown-menu {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 300px;
+  max-width: 80%;
+  margin: 0 !important;
+  padding: 1rem !important;
+  background: var(--ifm-background-color);
+  box-shadow: 2px 0 8px rgba(0,0,0,0.12);
+  transform: translateX(-100%);
+  transition: transform 240ms ease-in-out;
+  z-index: 9999;
+}
+
+/* Show panel when hovering the brand (logo/title) or the dropdown itself */
+.navbar__brand:hover ~ .navbar__items .left-panel-dropdown .dropdown__menu,
+.navbar__brand:hover ~ .navbar__items .left-panel-dropdown .dropdown-menu,
+.navbar__items .left-panel-dropdown:hover .dropdown__menu,
+.navbar__items .left-panel-dropdown:hover .dropdown-menu {
+  transform: translateX(0);
+}
+
+/* Ensure links inside are readable */
+.left-panel-dropdown .dropdown__menu a,
+.left-panel-dropdown .dropdown-menu a {
+  display: block;
+  padding: 8px 0;
+  color: var(--ifm-color-primary-dark);
+}
+
+@media (max-width: 768px) {
+  .left-panel-dropdown .dropdown__menu,
+  .left-panel-dropdown .dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    height: auto;
+    width: auto;
+    box-shadow: none;
+  }
+}
+
+/* Center the navbar search box visually */
+.navbar {
+  position: relative;
+}
+.navbar .navbar__search {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  max-width: 600px;
+}
+
+@media (max-width: 768px) {
+  .navbar .navbar__search {
+    position: static;
+    transform: none;
+    width: auto;
+    max-width: none;
+  }
+}
