@@ -58,14 +58,16 @@
 
 % Résumé
 \begin{abstract}
-  \noindent Un court résumé en français (180--250 mots) présentant le contexte, les objectifs, la méthode et les résultats principaux.
-\end{abstract}
+  \noindent Ce rapport présente l'amélioration du site web du projet \texttt{geol} visant à rendre la documentation et les outils d'analyse plus accessibles aux utilisateurs non techniques. Le travail a consisté à clarifier et enrichir les pages de tutoriel, à refondre l'interface visuelle (notamment la page d'accueil), et à implémenter une recherche locale performante et structurée. La méthode adoptée a été itérative : exploration du code existant, modifications ciblées des composants React et des styles, génération d'un index statique pour la recherche, et validations locales via des builds successifs. Les principales réalisations incluent la réécriture de la page "Learn the check command", l'amélioration du moteur de recherche pour dédoublonner et indexer les sections avec ancres, la suppression de pages obsolètes et l'ajout de résumés techniques pour la chaîne d'outils AsciiDoc et l'ingénierie des données. Ces changements améliorent la découverte des fonctionnalités, la navigabilité et la maintenabilité du site. Des pistes d'évolution sont proposées, notamment l'automatisation CI du build et l'optimisation des assets pour la performance.
 
-% Remerciements
-\cleardoublepage
-\chapter*{Remerciements}
-\addcontentsline{toc}{chapter}{Remerciements}
-Remerciements et crédits.
+\bigskip
+\begin{center}\textbf{Remerciements}\end{center}
+\bigskip
+Je remercie chaleureusement Adrien SALES pour son encadrement, ses conseils et sa disponibilité tout au long du stage.
+Je remercie également les collègues d'OPT‑NC pour leur aide lors des tests, des revues de code et des validations fonctionnelles. 
+Enfin, je remercie l'Office des Postes et Télécommunications de Nouvelle‑Calédonie (OPT‑NC) pour le matériel mis à disposition et pour la confiance témoignée en confiant du matériel informatique à un stagiaire.
+\end{abstract}
+% Remerciements (déplacés dans l'abstract)
 
 % Table des matières et listes
 \cleardoublepage
@@ -99,6 +101,12 @@ La méthode adoptée a été itérative : identification des besoins, modificati
 
 \section{Implémentation / Développements}
 Travail réalisé (résumé des actions)
+\subsection*{Travaux réalisés -- Lundi 19 janvier 2026}
+\begin{itemize}
+  \item Exploration du dépôt, exécution d'une première build et repérage des pages et composants à modifier.
+  \item Planification des changements (visuels, recherche et documentation) et configuration des outils de développement (Git, éditeur, scripts de build).
+\end{itemize}
+
 \begin{itemize}
   \item Mise en place d'un volet latéral (menu) qui s'ouvre à gauche et regroupe les entrées importantes : Tutoriel, Blog et Mises à jour (Releases).
   \item Création d'une page "MàJ / Releases" présentant pour chaque version le numéro et un court résumé des changements et améliorations.
@@ -112,6 +120,15 @@ Travail réalisé (résumé des actions)
 Remarques techniques et choix : les modifications de l'interface ont été réalisées en éditant les composants React du site, les styles CSS modulaires, et la configuration Docusaurus. La recherche locale a été implémentée en générant un fichier JSON statique avant la construction du site afin d'assurer des performances et une autonomie hors ligne.
 
 Travail accompli en priorité pour rendre le site plus accessible et faciliter la découverte des fonctionnalités de `geol` par des utilisateurs non techniques.
+
+\subsection*{Travaux réalisés -- Mardi 20 janvier 2026}
+\begin{itemize}
+  \item Réécriture et simplification de la page « Learn the check command » pour la rendre plus compréhensible.
+  \item Refonte de l'arrière‑plan de la page d'accueil.
+  \item Amélioration de la recherche : indexation des titres avec ancres (\#) et suppression des doublons.
+  \item Suppression de la page d'exemple Markdown (`site/src/pages/markdown-page.md`).
+  \item Compléments et enrichissement des tutoriels avancés.
+\end{itemize}
 
 \chapter{Résultats}
 Présenter les résultats obtenus, tableaux et figures.
@@ -141,6 +158,14 @@ Synthèse et pistes pour continuer le travail.
 OPT-NC, "geol — Repository for the geol project", GitHub, \url{https://github.com/opt-nc/geol}. Accessed 5 janvier 2026.
 \bibitem{adriens_managing_eols}
 adriens, "Managing EOLs w/ geol — The impossible 1-mux demo (CNL)", Dev.to, \url{https://dev.to/adriens/managing-eols-w-geol-the-impossible-1-mux-demo-cnl}. Accessed 5 janvier 2026.
+\bibitem{docusaurus}
+Docusaurus, "Docusaurus — Documentation website generator", \url{https://docusaurus.io/}. Accessed 20 janvier 2026.
+\bibitem{homebrew}
+Homebrew, "Homebrew — The missing package manager for macOS (and Linux)", \url{https://brew.sh/}. Accessed 20 janvier 2026.
+\bibitem{asciidoctor}
+Asciidoctor Project, "Asciidoctor — AsciiDoc processor", \url{https://asciidoctor.org/}. Accessed 20 janvier 2026.
+\bibitem{endoflife}
+EndOfLife Date, "EndOfLife — Current and historical end-of-life dates for software and hardware", \url{https://endoflife.date/}. Accessed 20 janvier 2026.
 \end{thebibliography}
 
 \end{document}
