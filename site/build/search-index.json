@@ -1,42 +1,257 @@
 [
   {
     "title": "Tutorial Intro",
-    "text": "Tutorial Intro Let's discover geol in less than 5 minutes . Getting Started Get started by installing with brew . Or try immediately with docker or Killercoda playground : eol ... ... What you'll need brew installed on your machine. See the official Homebrew website for installation instructions. Or simply with go: Or with shell script: You can type this command into Command Prompt, Terminal, or any other integrated terminal of your code editor. Get geol version Know a bit more about geol Get help Update",
-    "url": "/docs/intro"
+    "text": "",
+    "url": "/docs/intro/"
+  },
+  {
+    "title": "Getting Started",
+    "text": "",
+    "url": "/docs/intro/#getting-started"
+  },
+  {
+    "title": "What you'll need",
+    "text": "",
+    "url": "/docs/intro/#what-youll-need"
+  },
+  {
+    "title": "Get `geol` version",
+    "text": "",
+    "url": "/docs/intro/#get-geol-version"
+  },
+  {
+    "title": "Know a bit more about `geol`",
+    "text": "",
+    "url": "/docs/intro/#know-a-bit-more-about-geol"
+  },
+  {
+    "title": "Get help",
+    "text": "",
+    "url": "/docs/intro/#get-help"
+  },
+  {
+    "title": "Update",
+    "text": "",
+    "url": "/docs/intro/#update"
   },
   {
     "title": "Learn the `check` command",
-    "text": "Learn the check command About the check command that helps your stack. geol check analyzes a YAML described stack and reports each component's EOL status. Use geol check init to create a starter .geol.yaml file. Run geol check to see a table of statuses and warnings. Create your check yaml file",
-    "url": "/docs/tutorial-basics/check-command"
+    "text": "",
+    "url": "/docs/tutorial-basics/check-command/"
+  },
+  {
+    "title": "Create your check `yaml` file",
+    "text": "",
+    "url": "/docs/tutorial-basics/check-command/#create-your-check-yaml-file"
+  },
+  {
+    "title": "Example output",
+    "text": "",
+    "url": "/docs/tutorial-basics/check-command/#example-output"
   },
   {
     "title": "Congratulations!",
-    "text": "Congratulations! You have just learned the basics of geol geol has much more to offer ! Have 5 more minutes ? Take a look at Tutorial extras Anything unclear or buggy in this tutorial? Please report it! What's next? Read the official documentation Get involved in the geol Community",
-    "url": "/docs/tutorial-basics/congratulations"
+    "text": "",
+    "url": "/docs/tutorial-basics/congratulations/"
+  },
+  {
+    "title": "What's next?",
+    "text": "",
+    "url": "/docs/tutorial-basics/congratulations/#whats-next"
   },
   {
     "title": "Know `endoflife.date` keys",
-    "text": "Know endoflife.date keys There are a lot of keys used by endoflife.date; they map products to metadata such as versions, release dates and end of life dates. Products A product is an item managed by geol (for example: Windows, Ubuntu). To display all available commands for a product, run: To choose how many versions to show, use extended and the n flag. For example: which displays the last 20 versions. Categories A category groups related products (for example: libraries, runtimes). Tags A tag is a short keyword used to label and filter products.",
-    "url": "/docs/tutorial-basics/deal-with-keys"
+    "text": "",
+    "url": "/docs/tutorial-basics/deal-with-keys/"
+  },
+  {
+    "title": "Products",
+    "text": "",
+    "url": "/docs/tutorial-basics/deal-with-keys/#products"
+  },
+  {
+    "title": "Categories",
+    "text": "",
+    "url": "/docs/tutorial-basics/deal-with-keys/#categories"
+  },
+  {
+    "title": "Tags",
+    "text": "",
+    "url": "/docs/tutorial-basics/deal-with-keys/#tags"
   },
   {
     "title": "Markdown Features",
-    "text": "Markdown Features geol documentation supports standard Markdown features : it is optimized for Github flavored variant. Export a list of products to a markdown file For example : The pandoc toolchain Pandoc is a document converter that can transform Markdown into HTML, PDF, and many other formats. It lets developers keep sources in easy to edit Markdown while producing user friendly outputs like PDF for non technical readers. To install Pandoc into Terminal, run: See the official installation instructions at https://pandoc.org/installing.html",
-    "url": "/docs/tutorial-basics/markdown-features"
+    "text": "",
+    "url": "/docs/tutorial-basics/markdown-features/"
+  },
+  {
+    "title": "Export a list of products to a `markdown` file",
+    "text": "",
+    "url": "/docs/tutorial-basics/markdown-features/#export-a-list-of-products-to-a-markdown-file"
+  },
+  {
+    "title": "The pandoc toolchain",
+    "text": "",
+    "url": "/docs/tutorial-basics/markdown-features/#the-pandoc-toolchain"
   },
   {
     "title": "Reporting products with geol",
-    "text": "Reporting products with geol geol stores metadata for each product (versions, release dates, and end of life dates) and lets you generate summaries, version lists, or exportable reports. Get a product overview Common commands:",
-    "url": "/docs/tutorial-basics/reporting-in-termial"
+    "text": "",
+    "url": "/docs/tutorial-basics/reporting-in-termial/"
+  },
+  {
+    "title": "Get a product overview",
+    "text": "",
+    "url": "/docs/tutorial-basics/reporting-in-termial/#get-a-product-overview"
   },
   {
     "title": "`asciidoc` Toolchain",
-    "text": "asciidoc Toolchain ...",
-    "url": "/docs/tutorial-extras/asciidoc-toolchain"
+    "text": "",
+    "url": "/docs/tutorial-extras/asciidoc-toolchain/"
   },
   {
     "title": "Data Engineering with `geol`",
-    "text": "Data Engineering with geol ...",
-    "url": "/docs/tutorial-extras/dataengineering"
+    "text": "",
+    "url": "/docs/tutorial-extras/dataengineering/"
+  },
+  {
+    "title": "MDX Blog Post",
+    "text": "",
+    "url": "/blog/2021-08-01-mdx-blog-post/"
+  },
+  {
+    "title": "Welcome",
+    "text": "",
+    "url": "/blog/2021-08-26-welcome/"
+  },
+  {
+    "title": "Manage EoLs like a boss with endoflife.date",
+    "text": "",
+    "url": "/blog/2022-12-14/"
+  },
+  {
+    "title": "Geol Go inception during Hackathon",
+    "text": "",
+    "url": "/blog/2025-01-17-hackathon/"
+  },
+  {
+    "title": "hacktoberfest geol kickoff",
+    "text": "",
+    "url": "/blog/2025-10-29-hackathon/"
+  },
+  {
+    "title": "Releases",
+    "text": "",
+    "url": "/releases/"
+  },
+  {
+    "title": "v2.5.1 — 2026-01-07",
+    "text": "",
+    "url": "/releases/#v251-2026-01-07"
+  },
+  {
+    "title": "v2.5.0 — 2026-01-06",
+    "text": "",
+    "url": "/releases/#v250-2026-01-06"
+  },
+  {
+    "title": "v2.4.0 — 2026-01-04",
+    "text": "",
+    "url": "/releases/#v240-2026-01-04"
+  },
+  {
+    "title": "v2.3.0 — 2025-12-30",
+    "text": "",
+    "url": "/releases/#v230-2025-12-30"
+  },
+  {
+    "title": "v2.2.0 — 2025-12-29",
+    "text": "",
+    "url": "/releases/#v220-2025-12-29"
+  },
+  {
+    "title": "v2.1.1 — 2025-12-28",
+    "text": "",
+    "url": "/releases/#v211-2025-12-28"
+  },
+  {
+    "title": "v2.1.0 — 2025-12-24",
+    "text": "",
+    "url": "/releases/#v210-2025-12-24"
+  },
+  {
+    "title": "v2.0.1 — 2025-12-05",
+    "text": "",
+    "url": "/releases/#v201-2025-12-05"
+  },
+  {
+    "title": "v2.0.0 — 2025-11-28",
+    "text": "",
+    "url": "/releases/#v200-2025-11-28"
+  },
+  {
+    "title": "v1.5.0 — 2025-11-25",
+    "text": "",
+    "url": "/releases/#v150-2025-11-25"
+  },
+  {
+    "title": "v1.4.0 — 2025-11-17",
+    "text": "",
+    "url": "/releases/#v140-2025-11-17"
+  },
+  {
+    "title": "v1.3.0 — 2025-11-03",
+    "text": "",
+    "url": "/releases/#v130-2025-11-03"
+  },
+  {
+    "title": "v1.2.0 — 2025-10-21",
+    "text": "",
+    "url": "/releases/#v120-2025-10-21"
+  },
+  {
+    "title": "v1.1.0 — 2025-10-14",
+    "text": "",
+    "url": "/releases/#v110-2025-10-14"
+  },
+  {
+    "title": "v1.0.0 — 2025-10-06",
+    "text": "",
+    "url": "/releases/#v100-2025-10-06"
+  },
+  {
+    "title": "v0.4.0 — 2025-10-01",
+    "text": "",
+    "url": "/releases/#v040-2025-10-01"
+  },
+  {
+    "title": "v0.3.0 — 2025-09-30",
+    "text": "",
+    "url": "/releases/#v030-2025-09-30"
+  },
+  {
+    "title": "v0.2.4 — 2025-09-26",
+    "text": "",
+    "url": "/releases/#v024-2025-09-26"
+  },
+  {
+    "title": "v0.2.3 — 2025-09-26",
+    "text": "",
+    "url": "/releases/#v023-2025-09-26"
+  },
+  {
+    "title": "v0.2.2 — 2025-09-26",
+    "text": "",
+    "url": "/releases/#v022-2025-09-26"
+  },
+  {
+    "title": "v0.2.1 — 2025-09-26",
+    "text": "",
+    "url": "/releases/#v021-2025-09-26"
+  },
+  {
+    "title": "v0.2.0 — 2025-09-25",
+    "text": "",
+    "url": "/releases/#v020-2025-09-25"
   }
 ]

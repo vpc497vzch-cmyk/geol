@@ -8,7 +8,7 @@ There are a lot of keys used by endoflife.date; they map products to metadata su
 
 ## Products
 
-A product is an item managed by geol (for example: Windows, Ubuntu).
+A product is an item managed by geol (for example: Windows, Ubuntu, iPhone...).
 ```shell
 geol list products
 ```
@@ -18,7 +18,7 @@ geol help product
 ```
 To choose how many versions to show, use `extended` and the `-n` flag. For example:
 ```shell
-geol product extended name -n20
+geol product extended <product-name> -n20
 ```
 which displays the last 20 versions.
 

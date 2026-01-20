@@ -1,7 +1,7 @@
 {
   "id": "tutorial-basics/check-command",
   "title": "Learn the check command",
-  "description": "About the check command that helps your stack.",
+  "description": "Check your stack for end-of-life (EOL) statuses. Run geol check init to create a .geol.yaml and then geol check to view component statuses and warnings.",
   "source": "@site/docs/tutorial-basics/check-command.md",
   "sourceDirName": "tutorial-basics",
   "slug": "/tutorial-basics/check-command",

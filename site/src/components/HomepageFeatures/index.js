@@ -4,12 +4,12 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: '',
+    title: 'Easy to use',
     Svg: (props) => (
       <img
         {...props}
-        src={require('@site/static/img/Easy to use.png').default}
-        alt="Easy to use"
+        src={require('@site/static/img/click_mouse_transparent.png').default}
+        alt="Click mouse"
       />
     ),
     description: (
@@ -31,7 +31,13 @@ const FeatureList = [
   },
   {
     title: 'Powered by Go',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    Svg: (props) => (
+      <img
+        {...props}
+        src={require('@site/static/img/Go language gris.png').default}
+        alt="Go language (grey)"
+      />
+    ),
     description: (
       <>
         Built with the Go programming language, <code>geol</code> is a fast,

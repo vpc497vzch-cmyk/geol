@@ -8,6 +8,20 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  /* Use a gradient background image from static/img; show more of the image */
+  background-color: #2e8555; /* match gradient start to hide gaps */
+  background-image: url('/img/Dégradé.jpeg');
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: contain;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    /* on small screens keep cover to avoid large empty areas */
+    background-size: cover;
+    background-position: center;
+  }
 }
 
 @media screen and (max-width: 996px) {

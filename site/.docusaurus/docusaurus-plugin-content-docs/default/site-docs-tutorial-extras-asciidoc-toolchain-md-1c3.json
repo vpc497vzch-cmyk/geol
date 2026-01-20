@@ -1,7 +1,7 @@
 {
   "id": "tutorial-extras/asciidoc-toolchain",
   "title": "asciidoc Toolchain",
-  "description": "...",
+  "description": "AsciiDoc lets you write human-readable documentation and convert it to HTML, PDF, or slides using tools like Asciidoctor.",
   "source": "@site/docs/tutorial-extras/asciidoc-toolchain.md",
   "sourceDirName": "tutorial-extras",
   "slug": "/tutorial-extras/asciidoc-toolchain",
