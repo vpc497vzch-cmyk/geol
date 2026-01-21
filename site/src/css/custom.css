@@ -131,3 +131,9 @@
     max-width: none;
   }
 }
+
+/* Slightly reduce H3 size on the check-command doc so subheads are a bit smaller */
+body[class*="check-command"] .theme-doc-markdown h3 {
+  font-size: 1.05rem;
+  line-height: 1.2;
+}

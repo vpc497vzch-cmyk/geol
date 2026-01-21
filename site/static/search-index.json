@@ -1,137 +1,152 @@
 [
   {
     "title": "Tutorial Intro",
-    "text": "",
+    "text": "Tutorial Intro Let's discover **geol in less than 5 minutes**. Getting Started Get started by **installing with brew**. Note: Homebrew often provides more up-to-date packages than other sources, so installing via brew will typically give you a newer version. Or try immediately with docker or Killercoda playground : eol ... ... What you'll need brew installed on your machine. See the official Homebrew website for installation instructions. brew install --cask opt-nc/homebrew-tap/geol Note: If the brew installation fails, it may be because Homebrew's curl is not installed and your system is using the distribution curl (apt). Or install with: Go go install github.com/opt-nc/geol@latest Shell script curl -fsSL https://raw.githubusercontent.com/opt-nc/geol/main/install.sh | bash You can type this command into Command Prompt, Terminal, or any other integrated terminal of your code editor. Get geol version geol version Know a bit more about geol geol about Get help To get help, run: geol help #help either man geol #man page Update brew update && brew upgrade --cask geol version",
     "url": "/docs/intro/"
   },
   {
     "title": "Getting Started",
-    "text": "",
+    "text": "Get started by **installing with brew**.",
     "url": "/docs/intro/#getting-started"
   },
   {
     "title": "What you'll need",
-    "text": "",
+    "text": "brew installed on your machine. See the official Homebrew website for installation instructions.",
     "url": "/docs/intro/#what-youll-need"
   },
   {
     "title": "Get `geol` version",
-    "text": "",
+    "text": "geol version",
     "url": "/docs/intro/#get-geol-version"
   },
   {
     "title": "Know a bit more about `geol`",
-    "text": "",
+    "text": "geol about",
     "url": "/docs/intro/#know-a-bit-more-about-geol"
   },
   {
     "title": "Get help",
-    "text": "",
+    "text": "To get help, run:",
     "url": "/docs/intro/#get-help"
   },
   {
     "title": "Update",
-    "text": "",
+    "text": "brew update && brew upgrade --cask geol version",
     "url": "/docs/intro/#update"
   },
   {
     "title": "Learn the `check` command",
-    "text": "",
+    "text": "Learn the check command Check your stack for end-of-life (EOL) statuses. Run geol check init to create a .geol.yaml and then geol check to view component statuses and warnings. Create your check yaml file geol check init Minimal example .geol.yaml products: - name: ubuntu - name: maven days_warn: 30 Example output After geol check, you'll see a table listing components and their statuses, for example: Software │ Version │ EOL Date │ Status │ Days │ Is Latest │ Latest ───────────────┼─────────┼─────────────┼────────┼────────┼───────────┼-------- maven │ 3.6 │ 2021-03-30 │ EOL │ -1756 │ false │ 3.9 quarkus │ 3.12 │ 2024-07-31 │ EOL │ -537 │ false │ 3.30 traefik │ 2.11 │ 2026-02-01 │ WARN │ 12 │ false │ 3.6 ubuntu │ 25.10 │ 2026-07-01 │ OK │ 162 │ true │ 25.10 postgresql │ 14 │ 2026-11-12 │ OK │ 296 │ false │ 18 java temurin │ 21 │ 2029-12-31 │ OK │ 1441 │ false │ 25 opensearch │ 2 │ │ OK │ - │ false │ 3 Output fields Software: product name (e.g. ubuntu). Version: the reported or configured version. EOL Date: known end-of-life date (empty if unknown). Status: OK, WARN, EOL, or UNKNOWN. Days: days until EOL (positive) or since EOL (negative); - if unknown. Is Latest: whether this version is the latest known release. Latest: the latest known version for the product. Status meanings OK — supported and not close to EOL. WARN — approaching EOL (within days_warn). EOL — past its end-of-life date; update recommended. UNKNOWN — no EOL date available for this version.",
     "url": "/docs/tutorial-basics/check-command/"
   },
   {
     "title": "Create your check `yaml` file",
-    "text": "",
+    "text": "geol check init",
     "url": "/docs/tutorial-basics/check-command/#create-your-check-yaml-file"
   },
   {
+    "title": "Minimal example `.geol.yaml`",
+    "text": "products: - name: ubuntu - name: maven days_warn: 30",
+    "url": "/docs/tutorial-basics/check-command/#minimal-example-geolyaml"
+  },
+  {
     "title": "Example output",
-    "text": "",
+    "text": "After geol check, you'll see a table listing components and their statuses, for example:",
     "url": "/docs/tutorial-basics/check-command/#example-output"
   },
   {
+    "title": "Output fields",
+    "text": "Software: product name (e.g. ubuntu). Version: the reported or configured version. EOL Date: known end-of-life date (empty if unknown). Status: OK, WARN, EOL, or UNKNOWN. Days: days until EOL (positive) or since EOL (negative); - if unknown. Is Latest: whether this version is the latest known release. Latest: the latest known version for the product.",
+    "url": "/docs/tutorial-basics/check-command/#output-fields"
+  },
+  {
+    "title": "Status meanings",
+    "text": "OK — supported and not close to EOL. WARN — approaching EOL (within days_warn). EOL — past its end-of-life date; update recommended. UNKNOWN — no EOL date available for this version.",
+    "url": "/docs/tutorial-basics/check-command/#status-meanings"
+  },
+  {
     "title": "Congratulations!",
-    "text": "",
+    "text": "Congratulations! You have just learned the **basics of geol** geol has **much more to offer**! Have **5 more minutes**? Take a look at Tutorial advanced Anything **unclear** or **buggy** in this tutorial? Please report it! What's next? Read the official documentation Get involved in the geol Community",
     "url": "/docs/tutorial-basics/congratulations/"
   },
   {
     "title": "What's next?",
-    "text": "",
+    "text": "Read the official documentation Get involved in the geol Community",
     "url": "/docs/tutorial-basics/congratulations/#whats-next"
   },
   {
     "title": "Know `endoflife.date` keys",
-    "text": "",
+    "text": "Know endoflife.date keys There are a lot of keys used by endoflife.date; they map products to metadata such as versions, release dates and end-of-life dates. Products A product is an item managed by geol (for example: Windows, Ubuntu, iPhone...). geol list products To display all available commands for a product, run: geol help product To choose how many versions to show, use extended and the -n flag. For example: geol product extended -n20 which displays the last 20 versions. Categories A category groups related products (for example: libraries, runtimes). geol list categories Tags A tag is a short keyword used to label and filter products. geol list tags",
     "url": "/docs/tutorial-basics/deal-with-keys/"
   },
   {
     "title": "Products",
-    "text": "",
+    "text": "A product is an item managed by geol (for example: Windows, Ubuntu, iPhone...). geol list products To display all available commands for a product, run: geol help product To choose how many versions to show, use extended and the -n flag. For example: geol product extended -n20 which displays the last 20 versions.",
     "url": "/docs/tutorial-basics/deal-with-keys/#products"
   },
   {
     "title": "Categories",
-    "text": "",
+    "text": "A category groups related products (for example: libraries, runtimes). geol list categories",
     "url": "/docs/tutorial-basics/deal-with-keys/#categories"
   },
   {
     "title": "Tags",
-    "text": "",
+    "text": "A tag is a short keyword used to label and filter products. geol list tags",
     "url": "/docs/tutorial-basics/deal-with-keys/#tags"
   },
   {
     "title": "`Markdown` Features",
-    "text": "",
+    "text": "Markdown Features geol documentation supports **standard Markdown features** : it is optimized for Github-flavored variant. Export a list of products to a markdown file For example : geol list products > geol-report.md The pandoc toolchain pandoc is a document converter for transforming Markdown into EPUB, PDF, DOCX, HTML, and more. Typical workflow: Produce geol-report.md with geol. Option A — direct export with pandoc: pandoc geol-report.md -o geol-report.epub pandoc geol-report.md -o geol-report.pdf --pdf-engine=xelatex Option B — convert to AsciiDoc then use Asciidoctor: pandoc geol-report.md -f markdown -t asciidoc -o geol-report.adoc Install pandoc (example): brew install pandoc See https://pandoc.org/installing.html for details.",
     "url": "/docs/tutorial-basics/markdown-features/"
   },
   {
     "title": "Export a list of products to a `markdown` file",
-    "text": "",
+    "text": "For example : geol list products > geol-report.md",
     "url": "/docs/tutorial-basics/markdown-features/#export-a-list-of-products-to-a-markdown-file"
   },
   {
     "title": "The `pandoc` toolchain",
-    "text": "",
+    "text": "pandoc is a document converter for transforming Markdown into EPUB, PDF, DOCX, HTML, and more. Typical workflow:",
     "url": "/docs/tutorial-basics/markdown-features/#the-pandoc-toolchain"
   },
   {
     "title": "Reporting products with `geol`",
-    "text": "",
+    "text": "Reporting products with geol geol stores metadata for each product (versions, release dates, and end-of-life dates) and lets you generate summaries, version lists, or exportable reports. Get a product overview Common commands: geol product describe # detailed summary for a product geol product list # list known products geol export # export reports (see export docs)",
     "url": "/docs/tutorial-basics/reporting-in-termial/"
   },
   {
     "title": "Get a product overview",
-    "text": "",
+    "text": "Common commands:",
     "url": "/docs/tutorial-basics/reporting-in-termial/#get-a-product-overview"
   },
   {
     "title": "`asciidoc` Toolchain",
-    "text": "",
+    "text": "asciidoc Toolchain AsciiDoc lets you write human-readable documentation and convert it to HTML, PDF, or slides using tools like Asciidoctor. Here are two common commands to convert an AsciiDoc report to HTML (with a table of contents) and to PDF: asciidoctor -a toc -a toclevels=4 geol-report.adoc # convert geol-report.adoc to HTML with a table of contents asciidoctor-pdf -a toc -a toclevels=4 geol-report.adoc # convert geol-report.adoc to PDF Notes & workflow examples If you have a Markdown report (geol-report.md) you can: Convert to AsciiDoc and process with Asciidoctor: pandoc geol-report.md -f markdown -t asciidoc -o geol-report.adoc asciidoctor -a toc -a toclevels=4 geol-report.adoc asciidoctor-pdf -a toc -a toclevels=4 geol-report.adoc Or produce EPUB/PDF directly with pandoc: pandoc geol-report.md -o geol-report.epub pandoc geol-report.md -o geol-report.pdf --pdf-engine=xelatex See https://pandoc.org/ and https://asciidoctor.org/ for installation and options.",
     "url": "/docs/tutorial-extras/asciidoc-toolchain/"
   },
   {
     "title": "Notes & workflow examples",
-    "text": "",
+    "text": "If you have a Markdown report (geol-report.md) you can:",
     "url": "/docs/tutorial-extras/asciidoc-toolchain/#notes-workflow-examples"
   },
   {
     "title": "Data Engineering with `geol`",
-    "text": "",
+    "text": "Data Engineering with geol Data Engineering with geol explains how to collect, normalize, and analyze product metadata (versions, release dates, end-of-life) for downstream analytics. It covers ingestion, storage, querying and exporting workflows (CSV, DuckDB) to build repeatable ETL pipelines and reports.",
     "url": "/docs/tutorial-extras/dataengineering/"
   },
   {
     "title": "MDX Blog Post",
-    "text": "",
+    "text": "Blog posts support Docusaurus Markdown features, such as MDX. :::tip Use the power of React to create interactive blog posts. ::: {/* truncate */} For example, use JSX to create an interactive button: alert('button clicked!')}>Click me! alert('button clicked!')}>Click me!",
     "url": "/blog/2021-08-01-mdx-blog-post/"
   },
   {
     "title": "Manage EoLs like a boss with endoflife.date",
-    "text": "",
+    "text": "⌛ Manage EoLs like a boss with endoflife.date 🛑, first ever article that shows up what is endoflife.date about, and what eol can do to help you manage your software end-of-life dates from the command line.",
     "url": "/blog/2022-12-14/"
   },
   {
     "title": "Geol Go inception during Hackathon",
-    "text": "",
+    "text": "During ⏳GitHub Copilot 1-Day Build Challenge : eol, a tiny Go client to manage eols This was the very first time I gave a try to port eol to geol, just to see how it would work with Go, Goreleaser, and how it feels to use GitHub Copilot as pair programmer.",
     "url": "/blog/2025-01-17-hackathon/"
   },
   {
@@ -141,117 +156,117 @@
   },
   {
     "title": "Releases",
-    "text": "",
+    "text": "import AnchorFallback from '@site/src/components/AnchorFallback'; v2.5.1 — 2026-01-07 Date: 2026-01-07 Version: 2.5.1 Summary: Bug fixes and small improvements. **Highlights** Bug fix: log a debug message when a .geol file exists (commit 26e5bc3) — closes #162. --- v2.5.0 — 2026-01-06 Date: 2026-01-06 Version: 2.5.0 Summary: New features and miscellaneous chores. **Highlights** Feature: add JSON output to the check command — closes #163. Feature: add Is Latest field / Latest column to check output — closes #210. Misc: dependency updates and build chore fixes. --- v2.4.0 — 2026-01-04 Date: 2026-01-04 Version: 2.4.0 Summary: Improvements and CI updates. **Highlights** Feature: make name a unique identifier and add skip option — closes #244. CI: add osv-scanner workflows and CI fixes. --- v2.3.0 — 2025-12-30 Date: 2025-12-30 Version: 2.3.0 Summary: Database additions and tagging support. **Highlights** Feature: add tags and categories support and related database tables — closes #96. --- v2.2.0 — 2025-12-29 Date: 2025-12-29 Version: 2.2.0 Summary: Data model and stability fixes. **Highlights** Feature: add aliases and product_identifiers tables — closes #96. Bug fixes and refactoring for product retrieval efficiency. --- v2.1.1 — 2025-12-28 Date: 2025-12-28 Version: 2.1.1 Summary: Bug fixes. **Highlights** Fix: add app_id handling to YAML processing and correct checksum retrieval — closes #212. --- v2.1.0 — 2025-12-24 Date: 2025-12-24 Version: 2.1.0 Summary: Features for better export and reporting. **Highlights** Feature: add details table and duckdb command — closes #96. Multiple bug fixes and CI/workflow improvements. --- v2.0.1 — 2025-12-05 Date: 2025-12-05 Version: 2.0.1 Summary: Bug fixes and maintenance. **Highlights** Fix: check version when refreshing cache and other reliability fixes — closes #170. --- v2.0.0 — 2025-11-28 Date: 2025-11-28 Version: 2.0.0 Summary: Major release with breaking changes and new features. **Highlights** Breaking: removal of critical field in the check YAML format — closes #177. Features: improved logs and other user-facing improvements — closes #183. --- v1.5.0 — 2025-11-25 Date: 2025-11-25 Version: 1.5.0 Summary: Product identifiers and export improvements. **Highlights** Feature: add Product Identifiers and JSON product pages — closes #116 and #118. Feature: add iCalendar (ICS) feed — closes #119. --- v1.4.0 — 2025-11-17 Date: 2025-11-17 Version: 1.4.0 Summary: Category listing improvements and fixes. **Highlights** Feature: list products associated with a given category — closes #132. Fix: correct example formatting and other minor bug fixes — closes #131. --- v1.3.0 — 2025-11-03 Date: 2025-11-03 Version: 1.3.0 Summary: New check command and templates; UX improvements. **Highlights** Feature: add check command and template subcommand (renamed to init). Fixes: strict flag, color/status improvements, and various logging refinements. --- v1.2.0 — 2025-10-21 Date: 2025-10-21 Version: 1.2.0 Summary: Markdown redirection and dependency updates. **Highlights** Feature: add Markdown redirection support. Chore: dependency bumps and CI improvements. --- v1.1.0 — 2025-10-14 Date: 2025-10-14 Version: 1.1.0 Summary: New commands and tooling improvements. **Highlights** Feature: add tag command; list tags and categories. Misc: various tooling and refresh command updates. --- v1.0.0 — 2025-10-06 Date: 2025-10-06 Version: 1.0.0 Summary: Major milestone with breaking changes and core features. **Highlights** Breaking: geol list becomes geol list products. Features: add categories and tags subcommands; list products subcommand. --- v0.4.0 — 2025-10-01 Date: 2025-10-01 Version: 0.4.0 Summary: UI and usability enhancements. **Highlights** Feature: add tree view for the list command; bug fixes and dependency updates. --- v0.3.0 — 2025-09-30 Date: 2025-09-30 Version: 0.3.0 Summary: Visual tweaks and minor fixes. **Highlights** Feature: add colors and minor UI improvements; various small bug fixes. --- v0.2.4 — 2025-09-26 Date: 2025-09-26 Version: 0.2.4 Summary: Dependency updates and scripts. **Highlights** Chore: update dependencies and CI scripts. --- v0.2.3 — 2025-09-26 Date: 2025-09-26 Version: 0.2.3 Summary: Completion and scripts improvements. **Highlights** Fix: add scripts and completions; update permissions for scripts. --- v0.2.2 — 2025-09-26 Date: 2025-09-26 Version: 0.2.2 Summary: Add completion files and small fixes. **Highlights** Fix: add shell completion files. --- v0.2.1 — 2025-09-26 Date: 2025-09-26 Version: 0.2.1 Summary: Misc fixes and CI bumps. **Highlights** Fix: casks directory handling and CI/dependency bumps. --- v0.2.0 — 2025-09-25 Date: 2025-09-25 Version: 0.2.0 Summary: Core features added: about, clear, list and caching. **Highlights** Features: add about, clear, and list commands; caching and logging improvements. --- title: Releases --- Releases v2.5.1 — 2026-01-07 Date: 2026-01-07 Version: 2.5.1 Summary: Bug fixes and small improvements. **Highlights** Bug fix: log a debug message when a .geol file exists (commit 26e5bc3) — closes #162. --- v2.5.0 — 2026-01-06 Date: 2026-01-06 Version: 2.5.0 Summary: New features and miscellaneous chores. **Highlights** Feature: add JSON output to the check command — closes #163. Feature: add Is Latest field / Latest column to check output — closes #210. Misc: dependency updates and build chore fixes. --- v2.4.0 — 2026-01-04 Date: 2026-01-04 Version: 2.4.0 Summary: Improvements and CI updates. **Highlights** Feature: make name a unique identifier and add skip option — closes #244. CI: add osv-scanner workflows and CI fixes. --- v2.3.0 — 2025-12-30 Date: 2025-12-30 Version: 2.3.0 Summary: Database additions and tagging support. **Highlights** Feature: add tags and categories support and related database tables — closes #96. --- v2.2.0 — 2025-12-29 Date: 2025-12-29 Version: 2.2.0 Summary: Data model and stability fixes. **Highlights** Feature: add aliases and product_identifiers tables — closes #96. Bug fixes and refactoring for product retrieval efficiency. --- v2.1.1 — 2025-12-28 Date: 2025-12-28 Version: 2.1.1 Summary: Bug fixes. **Highlights** Fix: add app_id handling to YAML processing and correct checksum retrieval — closes #212. --- v2.1.0 — 2025-12-24 Date: 2025-12-24 Version: 2.1.0 Summary: Features for better export and reporting. **Highlights** Feature: add details table and duckdb command — closes #96. Multiple bug fixes and CI/workflow improvements. --- v2.0.1 — 2025-12-05 Date: 2025-12-05 Version: 2.0.1 Summary: Bug fixes and maintenance. **Highlights** Fix: check version when refreshing cache and other reliability fixes — closes #170. --- v2.0.0 — 2025-11-28 Date: 2025-11-28 Version: 2.0.0 Summary: Major release with breaking changes and new features. **Highlights** Breaking: removal of critical field in the check YAML format — closes #177. Features: improved logs and other user-facing improvements — closes #183. --- v1.5.0 — 2025-11-25 Date: 2025-11-25 Version: 1.5.0 Summary: Product identifiers and export improvements. **Highlights** Feature: add Product Identifiers and JSON product pages — closes #116 and #118. Feature: add iCalendar (ICS) feed — closes #119. --- v1.4.0 — 2025-11-17 Date: 2025-11-17 Version: 1.4.0 Summary: Category listing improvements and fixes. **Highlights** Feature: list products associated with a given category — closes #132. Fix: correct example formatting and other minor bug fixes — closes #131. --- v1.3.0 — 2025-11-03 Date: 2025-11-03 Version: 1.3.0 Summary: New check command and templates; UX improvements. **Highlights** Feature: add check command and template subcommand (renamed to init). Fixes: strict flag, color/status improvements, and various logging refinements. --- v1.2.0 — 2025-10-21 Date: 2025-10-21 Version: 1.2.0 Summary: Markdown redirection and dependency updates. **Highlights** Feature: add Markdown redirection support. Chore: dependency bumps and CI improvements. --- v1.1.0 — 2025-10-14 Date: 2025-10-14 Version: 1.1.0 Summary: New commands and tooling improvements. **Highlights** Feature: add tag command; list tags and categories. Misc: various tooling and refresh command updates. --- v1.0.0 — 2025-10-06 Date: 2025-10-06 Version: 1.0.0 Summary: Major milestone with breaking changes and core features. **Highlights** Breaking: geol list becomes geol list products. Features: add categories and tags subcommands; list products subcommand. --- v0.4.0 — 2025-10-01 Date: 2025-10-01 Version: 0.4.0 Summary: UI and usability enhancements. **Highlights** Feature: add tree view for the list command; bug fixes and dependency updates. --- v0.3.0 — 2025-09-30 Date: 2025-09-30 Version: 0.3.0 Summary: Visual tweaks and minor fixes. **Highlights** Feature: add colors and minor UI improvements; various small bug fixes. --- v0.2.4 — 2025-09-26 Date: 2025-09-26 Version: 0.2.4 Summary: Dependency updates and scripts. **Highlights** Chore: update dependencies and CI scripts. --- v0.2.3 — 2025-09-26 Date: 2025-09-26 Version: 0.2.3 Summary: Completion and scripts improvements. **Highlights** Fix: add scripts and completions; update permissions for scripts. --- v0.2.2 — 2025-09-26 Date: 2025-09-26 Version: 0.2.2 Summary: Add completion files and small fixes. **Highlights** Fix: add shell completion files. --- v0.2.1 — 2025-09-26 Date: 2025-09-26 Version: 0.2.1 Summary: Misc fixes and CI bumps. **Highlights** Fix: casks directory handling and CI/dependency bumps. --- v0.2.0 — 2025-09-25 Date: 2025-09-25 Version: 0.2.0 Summary: Core features added: about, clear, list and caching. **Highlights** Features: add about, clear, and list commands; caching and logging improvements.",
     "url": "/releases/"
   },
   {
     "title": "v2.5.1 — 2026-01-07",
-    "text": "",
-    "url": "/releases/#v251-2026-01-07"
+    "text": "Date: 2026-01-07 Version: 2.5.1 Summary: Bug fixes and small improvements.",
+    "url": "/releases/#v251---2026-01-07"
   },
   {
     "title": "v2.5.0 — 2026-01-06",
-    "text": "",
-    "url": "/releases/#v250-2026-01-06"
+    "text": "Date: 2026-01-06 Version: 2.5.0 Summary: New features and miscellaneous chores.",
+    "url": "/releases/#v250---2026-01-06"
   },
   {
     "title": "v2.4.0 — 2026-01-04",
-    "text": "",
-    "url": "/releases/#v240-2026-01-04"
+    "text": "Date: 2026-01-04 Version: 2.4.0 Summary: Improvements and CI updates.",
+    "url": "/releases/#v240---2026-01-04"
   },
   {
     "title": "v2.3.0 — 2025-12-30",
-    "text": "",
-    "url": "/releases/#v230-2025-12-30"
+    "text": "Date: 2025-12-30 Version: 2.3.0 Summary: Database additions and tagging support.",
+    "url": "/releases/#v230---2025-12-30"
   },
   {
     "title": "v2.2.0 — 2025-12-29",
-    "text": "",
-    "url": "/releases/#v220-2025-12-29"
+    "text": "Date: 2025-12-29 Version: 2.2.0 Summary: Data model and stability fixes.",
+    "url": "/releases/#v220---2025-12-29"
   },
   {
     "title": "v2.1.1 — 2025-12-28",
-    "text": "",
-    "url": "/releases/#v211-2025-12-28"
+    "text": "Date: 2025-12-28 Version: 2.1.1 Summary: Bug fixes.",
+    "url": "/releases/#v211---2025-12-28"
   },
   {
     "title": "v2.1.0 — 2025-12-24",
-    "text": "",
-    "url": "/releases/#v210-2025-12-24"
+    "text": "Date: 2025-12-24 Version: 2.1.0 Summary: Features for better export and reporting.",
+    "url": "/releases/#v210---2025-12-24"
   },
   {
     "title": "v2.0.1 — 2025-12-05",
-    "text": "",
-    "url": "/releases/#v201-2025-12-05"
+    "text": "Date: 2025-12-05 Version: 2.0.1 Summary: Bug fixes and maintenance.",
+    "url": "/releases/#v201---2025-12-05"
   },
   {
     "title": "v2.0.0 — 2025-11-28",
-    "text": "",
-    "url": "/releases/#v200-2025-11-28"
+    "text": "Date: 2025-11-28 Version: 2.0.0 Summary: Major release with breaking changes and new features.",
+    "url": "/releases/#v200---2025-11-28"
   },
   {
     "title": "v1.5.0 — 2025-11-25",
-    "text": "",
-    "url": "/releases/#v150-2025-11-25"
+    "text": "Date: 2025-11-25 Version: 1.5.0 Summary: Product identifiers and export improvements.",
+    "url": "/releases/#v150---2025-11-25"
   },
   {
     "title": "v1.4.0 — 2025-11-17",
-    "text": "",
-    "url": "/releases/#v140-2025-11-17"
+    "text": "Date: 2025-11-17 Version: 1.4.0 Summary: Category listing improvements and fixes.",
+    "url": "/releases/#v140---2025-11-17"
   },
   {
     "title": "v1.3.0 — 2025-11-03",
-    "text": "",
-    "url": "/releases/#v130-2025-11-03"
+    "text": "Date: 2025-11-03 Version: 1.3.0 Summary: New check command and templates; UX improvements.",
+    "url": "/releases/#v130---2025-11-03"
   },
   {
     "title": "v1.2.0 — 2025-10-21",
-    "text": "",
-    "url": "/releases/#v120-2025-10-21"
+    "text": "Date: 2025-10-21 Version: 1.2.0 Summary: Markdown redirection and dependency updates.",
+    "url": "/releases/#v120---2025-10-21"
   },
   {
     "title": "v1.1.0 — 2025-10-14",
-    "text": "",
-    "url": "/releases/#v110-2025-10-14"
+    "text": "Date: 2025-10-14 Version: 1.1.0 Summary: New commands and tooling improvements.",
+    "url": "/releases/#v110---2025-10-14"
   },
   {
     "title": "v1.0.0 — 2025-10-06",
-    "text": "",
-    "url": "/releases/#v100-2025-10-06"
+    "text": "Date: 2025-10-06 Version: 1.0.0 Summary: Major milestone with breaking changes and core features.",
+    "url": "/releases/#v100---2025-10-06"
   },
   {
     "title": "v0.4.0 — 2025-10-01",
-    "text": "",
-    "url": "/releases/#v040-2025-10-01"
+    "text": "Date: 2025-10-01 Version: 0.4.0 Summary: UI and usability enhancements.",
+    "url": "/releases/#v040---2025-10-01"
   },
   {
     "title": "v0.3.0 — 2025-09-30",
-    "text": "",
-    "url": "/releases/#v030-2025-09-30"
+    "text": "Date: 2025-09-30 Version: 0.3.0 Summary: Visual tweaks and minor fixes.",
+    "url": "/releases/#v030---2025-09-30"
   },
   {
     "title": "v0.2.4 — 2025-09-26",
-    "text": "",
-    "url": "/releases/#v024-2025-09-26"
+    "text": "Date: 2025-09-26 Version: 0.2.4 Summary: Dependency updates and scripts.",
+    "url": "/releases/#v024---2025-09-26"
   },
   {
     "title": "v0.2.3 — 2025-09-26",
-    "text": "",
-    "url": "/releases/#v023-2025-09-26"
+    "text": "Date: 2025-09-26 Version: 0.2.3 Summary: Completion and scripts improvements.",
+    "url": "/releases/#v023---2025-09-26"
   },
   {
     "title": "v0.2.2 — 2025-09-26",
-    "text": "",
-    "url": "/releases/#v022-2025-09-26"
+    "text": "Date: 2025-09-26 Version: 0.2.2 Summary: Add completion files and small fixes.",
+    "url": "/releases/#v022---2025-09-26"
   },
   {
     "title": "v0.2.1 — 2025-09-26",
-    "text": "",
-    "url": "/releases/#v021-2025-09-26"
+    "text": "Date: 2025-09-26 Version: 0.2.1 Summary: Misc fixes and CI bumps.",
+    "url": "/releases/#v021---2025-09-26"
   },
   {
     "title": "v0.2.0 — 2025-09-25",
-    "text": "",
-    "url": "/releases/#v020-2025-09-25"
+    "text": "Date: 2025-09-25 Version: 0.2.0 Summary: Core features added: about, clear, list and caching.",
+    "url": "/releases/#v020---2025-09-25"
   }
 ]
