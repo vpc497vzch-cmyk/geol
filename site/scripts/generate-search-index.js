@@ -74,9 +74,10 @@ function slugify(text) {
 }
 
 function buildIndex() {
+  // Exclude blog from the search index so blog posts do not show in the
+  // site search. Keep docs and pages indexed.
   const sources = [
     { dir: docsDir, prefix: '/docs/' },
-    { dir: blogDir, prefix: '/blog/' },
     { dir: pagesDir, prefix: '/' },
   ];
 
