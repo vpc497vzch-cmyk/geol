@@ -21,7 +21,13 @@ const FeatureList = [
   },
   {
     title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    Svg: (props) => (
+      <img
+        {...props}
+        src={require('@site/static/img/Img central sans dino.png').default}
+        alt="Central image"
+      />
+    ),
     description: (
       <>
         <code>geol</code> lets you focus on software end-of-life management, 
@@ -34,8 +40,8 @@ const FeatureList = [
     Svg: (props) => (
       <img
         {...props}
-        src={require('@site/static/img/Go language gris.png').default}
-        alt="Go language (grey)"
+        src={require('@site/static/img/go_transparent_eyes_preserved.png').default}
+        alt="Go language"
       />
     ),
     description: (

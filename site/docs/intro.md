@@ -10,6 +10,8 @@ Let's discover **geol in less than 5 minutes**.
 
 Get started by **installing with <code>brew</code>**.
 
+Note: Homebrew often provides more up-to-date packages than other sources, so installing via `brew` will typically give you a newer version.
+
 Or try immediately with docker or Killercoda playground : eol 
 
 - ...
@@ -22,12 +24,15 @@ Or try immediately with docker or Killercoda playground : eol
 ```bash
 brew install --cask opt-nc/homebrew-tap/geol
 ```
-Or simply with go:
+Note: If the `brew` installation fails, it may be because Homebrew's `curl` is not installed and your system is using the distribution `curl` (apt).
+
+Or install with:
+
 ```bash
+# Go
 go install github.com/opt-nc/geol@latest
-```
-Or with shell script:
-```bash
+
+# Shell script
 curl -fsSL https://raw.githubusercontent.com/opt-nc/geol/main/install.sh | bash
 ```
 
@@ -47,8 +52,11 @@ geol about
 
 ## Get help
 
+To get help, run:
+
 ```bash
-geol help
+geol help    #help either
+man geol     #man page
 ```
 
 ## Update

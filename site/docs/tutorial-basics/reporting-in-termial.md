@@ -2,9 +2,9 @@
 sidebar_position: 2
 ---
 
-# Reporting products with geol
+# Reporting products with `geol`
 
-geol stores metadata for each product (versions, release dates, and end-of-life dates) and lets you generate summaries, version lists, or exportable reports.
+`geol` stores metadata for each product (versions, release dates, and end-of-life dates) and lets you generate summaries, version lists, or exportable reports.
 
 ## Get a product overview
 

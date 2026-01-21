@@ -27,4 +27,3 @@ postgresql     │ 14      │ 2026-11-12  │ OK     │ 296    │ false     �
 java temurin   │ 21      │ 2029-12-31  │ OK     │ 1441   │ false     │ 25
 opensearch     │ 2       │             │ OK     │ -      │ false     │ 3
 ```
-

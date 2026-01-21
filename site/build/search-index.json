@@ -80,7 +80,7 @@
     "url": "/docs/tutorial-basics/deal-with-keys/#tags"
   },
   {
-    "title": "Markdown Features",
+    "title": "`Markdown` Features",
     "text": "",
     "url": "/docs/tutorial-basics/markdown-features/"
   },
@@ -90,12 +90,12 @@
     "url": "/docs/tutorial-basics/markdown-features/#export-a-list-of-products-to-a-markdown-file"
   },
   {
-    "title": "The pandoc toolchain",
+    "title": "The `pandoc` toolchain",
     "text": "",
     "url": "/docs/tutorial-basics/markdown-features/#the-pandoc-toolchain"
   },
   {
-    "title": "Reporting products with geol",
+    "title": "Reporting products with `geol`",
     "text": "",
     "url": "/docs/tutorial-basics/reporting-in-termial/"
   },
@@ -110,6 +110,11 @@
     "url": "/docs/tutorial-extras/asciidoc-toolchain/"
   },
   {
+    "title": "Notes & workflow examples",
+    "text": "",
+    "url": "/docs/tutorial-extras/asciidoc-toolchain/#notes-workflow-examples"
+  },
+  {
     "title": "Data Engineering with `geol`",
     "text": "",
     "url": "/docs/tutorial-extras/dataengineering/"
@@ -118,11 +123,6 @@
     "title": "MDX Blog Post",
     "text": "",
     "url": "/blog/2021-08-01-mdx-blog-post/"
-  },
-  {
-    "title": "Welcome",
-    "text": "",
-    "url": "/blog/2021-08-26-welcome/"
   },
   {
     "title": "Manage EoLs like a boss with endoflife.date",

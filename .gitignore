@@ -47,3 +47,5 @@ manpages/
 /assets/cheatsheet/.task/
 *.duckdb
 geol-build/
+.docusaurus/
+build/

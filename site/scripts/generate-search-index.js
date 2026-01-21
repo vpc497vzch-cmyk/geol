@@ -93,6 +93,11 @@ function buildIndex() {
       const text = '';
       // Use the page URL (no fragment) so search highlights the top-level entry (the bold one in the UI)
       const pageUrl = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';
+      // Exclude specific pages from the index (e.g. the default Welcome blog post)
+      const excludePaths = ['/blog/2021-08-26-welcome', '/blog/welcome'];
+      if (excludePaths.some(p => pageUrl.startsWith(p))) {
+        continue;
+      }
       items.push({ title, text, url: pageUrl });
 
       // Also index H2+ headings as separate entries with fragments (these show the '#' in the UI)
