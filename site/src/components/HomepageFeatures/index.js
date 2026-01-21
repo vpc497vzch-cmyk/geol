@@ -8,7 +8,7 @@ const FeatureList = [
     Svg: (props) => (
       <img
         {...props}
-        src={require('@site/static/img/click_mouse_transparent.png').default}
+        src={require('@site/static/img/mouse-cursor-click-icon-png-ojcVeq.png').default}
         alt="Click mouse"
       />
     ),
@@ -24,7 +24,7 @@ const FeatureList = [
     Svg: (props) => (
       <img
         {...props}
-        src={require('@site/static/img/Img central sans dino.png').default}
+        src={require('@site/static/img/Img_central_sans_dino.png').default}
         alt="Central image"
       />
     ),
@@ -40,7 +40,7 @@ const FeatureList = [
     Svg: (props) => (
       <img
         {...props}
-        src={require('@site/static/img/go_transparent_eyes_preserved.png').default}
+        src={require('@site/static/img/go_transparent.png').default}
         alt="Go language"
       />
     ),

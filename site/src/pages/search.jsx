@@ -42,18 +42,36 @@ export default function SearchPage() {
       groups.get(base).push(c);
     }
 
+    function escapeHtml(str) {
+      return str.replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
+    }
+
     function makeSnippet(text, q) {
       if (!text) return '';
-      const qt = (q || '').toString().toLowerCase();
+      const qt = (q || '').toString();
+      const qlow = qt.toLowerCase();
       const t = text.toString();
-      if (!qt) return t.slice(0, 140) + (t.length > 140 ? '…' : '');
-      const li = t.toLowerCase().indexOf(qt);
-      if (li === -1) return t.slice(0, 140) + (t.length > 140 ? '…' : '');
-      const start = Math.max(0, li - 40);
-      const end = Math.min(t.length, li + qt.length + 40);
+      // simple full excerpt when no query
+      if (!qlow) {
+        const s = t.slice(0, 140) + (t.length > 140 ? '…' : '');
+        return escapeHtml(s);
+      }
+      const li = t.toLowerCase().indexOf(qlow);
+      const start = li === -1 ? 0 : Math.max(0, li - 40);
+      const end = li === -1 ? Math.min(t.length, 140) : Math.min(t.length, li + qlow.length + 40);
       const prefix = start > 0 ? '…' : '';
       const suffix = end < t.length ? '…' : '';
-      return prefix + t.slice(start, end).trim() + suffix;
+      // extract and escape
+      const rawSlice = prefix + t.slice(start, end).trim() + suffix;
+      const escaped = escapeHtml(rawSlice);
+      // highlight query occurrences (case-insensitive)
+      try {
+        const qEsc = qt.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const re = new RegExp(qEsc, 'gi');
+        return escaped.replace(re, m => `<span class="search-match">${m}</span>`);
+      } catch (e) {
+        return escaped;
+      }
     }
 
     const resultsArr = [];
@@ -97,7 +115,7 @@ export default function SearchPage() {
           {results.map((r, i) => (
             <div key={i} className="search-result-item">
               <h3><Link to={r.url}>{r.title}</Link></h3>
-              {r.snippet && <p className="search-snippet">{r.snippet}</p>}
+              {r.snippet && <p className="search-snippet" dangerouslySetInnerHTML={{ __html: r.snippet }} />}
             </div>
           ))}
         </div>

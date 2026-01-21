@@ -137,3 +137,9 @@ body[class*="check-command"] .theme-doc-markdown h3 {
   font-size: 1.05rem;
   line-height: 1.2;
 }
+
+/* Hide specific EOL playground hint when requested (keeps content in source) */
+.hidden-eol {
+  display: none !important;
+}
+
