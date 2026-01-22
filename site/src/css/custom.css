@@ -163,3 +163,72 @@ body[class*="check-command"] .theme-doc-markdown h3 {
 img[draggable="true"] { draggable: false; }
 
 
+/* Make footer labels and copyright non-selectable while keeping links clickable */
+.footer__copyright,
+.footer__link-item,
+.footer__title,
+.footer__bottom,
+.footer__item {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Make navbar text non-selectable but keep interactive controls usable */
+.navbar,
+.navbar .navbar__brand,
+.navbar .navbar__title,
+.navbar .navbar__items,
+.navbar .navbar__item,
+.navbar .navbar__link,
+.navbar .navbar__logo {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Allow selection inside form controls and search input */
+.navbar input,
+.navbar textarea,
+.navbar .navbar__search,
+.navbar .DocSearch,
+.navbar .DocSearch-Button,
+.navbar .DocSearch-Input {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
+}
+
+/* Make the right-hand table of contents / releases sidebar non-selectable
+   while keeping links clickable */
+.table-of-contents,
+.toc,
+.menu__list,
+.menu__link,
+.theme-doc-sidebar,
+.docs-toc {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Ensure links inside the TOC remain clickable (user-select none doesn't
+   prevent clickability) but allow text selection inside any nested inputs */
+.table-of-contents a,
+.toc a,
+.menu__link a {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+

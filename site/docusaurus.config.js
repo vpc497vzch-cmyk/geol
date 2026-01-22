@@ -10,6 +10,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'geol',
   tagline: 'Software End Of Life management is too important to be  boring ',
+  // Favicon (restored to original image)
   favicon: 'img/logo-no-name-gradient.png',
 
   future: {
