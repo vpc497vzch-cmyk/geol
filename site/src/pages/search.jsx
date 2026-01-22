@@ -109,6 +109,9 @@ export default function SearchPage() {
         <h1>Search</h1>
         <div className="search-box">
           <input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search docs..." />
+          {query && (
+            <button className="search-clear" onClick={() => setQuery('')} aria-label="Clear search">×</button>
+          )}
         </div>
         <div className="search-results">
           {results.length === 0 && query && <p>No results</p>}

@@ -5,6 +5,28 @@
   border: 1px solid var(--ifm-color-primary-light);
   border-radius: 6px;
 }
+.search-box {
+  position: relative;
+}
+.search-box input {
+  padding-right: 2.6rem; /* room for clear button */
+}
+.search-clear {
+  position: absolute;
+  right: 0.35rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 0.25rem 0.4rem;
+  cursor: pointer;
+  color: var(--ifm-color-dark);
+}
+.search-clear:hover {
+  color: var(--ifm-color-primary);
+}
 .search-result-item { margin: 1rem 0; }
 .search-result-item h3 { margin: 0 0 0.25rem 0; }
 .search-result-item p { margin: 0; color: #000; }

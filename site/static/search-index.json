@@ -31,33 +31,18 @@
   },
   {
     "title": "Learn the `check` command",
-    "text": "Learn the check command Check your stack for end-of-life (EOL) statuses. Run geol check init to create a .geol.yaml and then geol check to view component statuses and warnings. Create your check yaml file geol check init Minimal example .geol.yaml products: - name: ubuntu - name: maven days_warn: 30 Example output After geol check, you'll see a table listing components and their statuses, for example: Software │ Version │ EOL Date │ Status │ Days │ Is Latest │ Latest ───────────────┼─────────┼─────────────┼────────┼────────┼───────────┼-------- maven │ 3.6 │ 2021-03-30 │ EOL │ -1756 │ false │ 3.9 quarkus │ 3.12 │ 2024-07-31 │ EOL │ -537 │ false │ 3.30 traefik │ 2.11 │ 2026-02-01 │ WARN │ 12 │ false │ 3.6 ubuntu │ 25.10 │ 2026-07-01 │ OK │ 162 │ true │ 25.10 postgresql │ 14 │ 2026-11-12 │ OK │ 296 │ false │ 18 java temurin │ 21 │ 2029-12-31 │ OK │ 1441 │ false │ 25 opensearch │ 2 │ │ OK │ - │ false │ 3 Output fields Software: product name (e.g. ubuntu). Version: the reported or configured version. EOL Date: known end-of-life date (empty if unknown). Status: OK, WARN, EOL, or UNKNOWN. Days: days until EOL (positive) or since EOL (negative); - if unknown. Is Latest: whether this version is the latest known release. Latest: the latest known version for the product. Status meanings OK — supported and not close to EOL. WARN — approaching EOL (within days_warn). EOL — past its end-of-life date; update recommended. UNKNOWN — no EOL date available for this version.",
+    "text": "Learn the check command Quickly check your stack for end-of-life (EOL) statuses. Initialize a check file Run the command to create a template .geol.yaml in the current directory: geol check init Edit the generated .geol.yaml to list the products you want to monitor. Minimal example .geol.yaml (created by geol check init): products: - name: ubuntu - name: maven days_warn: 30 Statuses and warnings Run the check to view statuses and warnings: geol check Example output (what geol check prints): Software │ Version │ EOL Date │ Status │ Days │ Is Latest │ Latest ───────────────┼─────────┼─────────────┼────────┼────────┼───────────┼-------- maven │ 3.6 │ 2021-03-30 │ EOL │ -1756 │ false │ 3.9 quarkus │ 3.12 │ 2024-07-31 │ EOL │ -537 │ false │ 3.30 traefik │ 2.11 │ 2026-02-01 │ WARN │ 12 │ false │ 3.6 ubuntu │ 25.10 │ 2026-07-01 │ OK │ 162 │ true │ 25.10 postgresql │ 14 │ 2026-11-12 │ OK │ 296 │ false │ 18 java temurin │ 21 │ 2029-12-31 │ OK │ 1441 │ false │ 25 opensearch │ 2 │ │ OK │ - │ false │ 3 **Legend** — fields shown in the example output **Output fields** - Software: product name (e.g. ubuntu). - Version: the reported or configured version. - EOL Date: known end-of-life date (empty if unknown). - Status: OK, WARN, EOL, or UNKNOWN. - Days: days until EOL (positive) or since EOL (negative); - if unknown. - Is Latest: whether this version is the latest known release. - Latest: the latest known version for the product. **Status meanings** - OK — supported and not close to EOL. - WARN — approaching EOL (within days_warn). - EOL — past its end-of-life date; update recommended. - UNKNOWN — no EOL date available for this version.",
     "url": "/docs/tutorial-basics/check-command/"
   },
   {
-    "title": "Create your check `yaml` file",
-    "text": "geol check init",
-    "url": "/docs/tutorial-basics/check-command/#create-your-check-yaml-file"
+    "title": "Initialize a check file",
+    "text": "Run the command to create a template .geol.yaml in the current directory:",
+    "url": "/docs/tutorial-basics/check-command/#initialize-a-check-file"
   },
   {
-    "title": "Minimal example `.geol.yaml`",
-    "text": "products: - name: ubuntu - name: maven days_warn: 30",
-    "url": "/docs/tutorial-basics/check-command/#minimal-example-geolyaml"
-  },
-  {
-    "title": "Example output",
-    "text": "After geol check, you'll see a table listing components and their statuses, for example:",
-    "url": "/docs/tutorial-basics/check-command/#example-output"
-  },
-  {
-    "title": "Output fields",
-    "text": "Software: product name (e.g. ubuntu). Version: the reported or configured version. EOL Date: known end-of-life date (empty if unknown). Status: OK, WARN, EOL, or UNKNOWN. Days: days until EOL (positive) or since EOL (negative); - if unknown. Is Latest: whether this version is the latest known release. Latest: the latest known version for the product.",
-    "url": "/docs/tutorial-basics/check-command/#output-fields"
-  },
-  {
-    "title": "Status meanings",
-    "text": "OK — supported and not close to EOL. WARN — approaching EOL (within days_warn). EOL — past its end-of-life date; update recommended. UNKNOWN — no EOL date available for this version.",
-    "url": "/docs/tutorial-basics/check-command/#status-meanings"
+    "title": "Statuses and warnings",
+    "text": "Run the check to view statuses and warnings:",
+    "url": "/docs/tutorial-basics/check-command/#statuses-and-warnings"
   },
   {
     "title": "Congratulations!",
@@ -106,7 +91,7 @@
   },
   {
     "title": "Reporting products with `geol`",
-    "text": "Reporting products with geol geol stores metadata for each product (versions, release dates, and end-of-life dates) and lets you generate summaries, version lists, or exportable reports. Get a product overview Common commands: geol product describe # detailed summary for a product geol product list # list known products geol export # export reports (see export docs)",
+    "text": "Reporting products with geol geol stores metadata for each product (versions, release dates, and end-of-life dates) and lets you generate summaries, version lists, or exportable reports. Get a product overview Common commands: geol product describe # detailed summary for a product geol export # export reports (see export docs)",
     "url": "/docs/tutorial-basics/reporting-in-termial/"
   },
   {

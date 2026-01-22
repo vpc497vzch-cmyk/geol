@@ -12,6 +12,5 @@ Common commands:
 
 ```shell
 geol product describe <product-name>   # detailed summary for a product
-geol product list                      # list known products
 geol export                            # export reports (see export docs)
 ```
