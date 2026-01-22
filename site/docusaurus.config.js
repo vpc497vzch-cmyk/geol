@@ -51,6 +51,10 @@ const config = {
     ],
   ],
 
+  clientModules: [
+    require.resolve('./src/js/no-image-drag.js'),
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */ ({
       image: 'img/docusaurus-social-card.jpg',

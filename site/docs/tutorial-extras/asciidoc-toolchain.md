@@ -16,7 +16,7 @@ asciidoctor-pdf -a toc -a toclevels=4 geol-report.adoc  # convert geol-report.ad
 
 If you have a Markdown report (`geol-report.md`) you can:
 
-- Convert to AsciiDoc and process with Asciidoctor:
+ - Convert to AsciiDoc and process with `Asciidoctor`:
 
 ```bash
 pandoc geol-report.md -f markdown -t asciidoc -o geol-report.adoc

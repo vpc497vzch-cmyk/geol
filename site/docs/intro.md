@@ -12,8 +12,6 @@ Get started by **installing with <code>brew</code>**.
 
 Note: Homebrew often provides more up-to-date packages than other sources, so installing via `brew` will typically give you a newer version.
 
- 
-
 ### What you'll need
 
 - <code>brew</code> installed on your machine. See the official <a href="https://brew.sh/" target="_blank" rel="noreferrer noopener">Homebrew website</a> for installation instructions.
@@ -34,7 +32,6 @@ for: https://github.com/opt-nc/geol/releases/download/v0.3.0/geol_Linux_x86_64.t
 brew install curl    # install 'curl' via Homebrew
 brew install --cask opt-nc/homebrew-tap/geol    # retry installing the 'geol' cask
 ```
-
 
 Or install with:
 
@@ -73,4 +70,3 @@ geol about
 geol help
 man geol
 ```
-

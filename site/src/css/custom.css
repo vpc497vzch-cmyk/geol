@@ -143,3 +143,23 @@ body[class*="check-command"] .theme-doc-markdown h3 {
   display: none !important;
 }
 
+/* Make images non-selectable and non-draggable so they behave like background elements */
+.theme-doc-markdown img,
+.hero img,
+.navbar img,
+.site-logo img,
+.docMainContainer img,
+.markdown img {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-touch-callout: none; /* disable callout on long press */
+}
+
+/* Additionally prevent dragstart for images in browsers that still allow it */
+img[draggable="true"] { draggable: false; }
+
+
