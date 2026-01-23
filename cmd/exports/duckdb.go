@@ -443,7 +443,8 @@ func createDetailsTable(db *sql.DB) error {
 			latest,
 			CASE WHEN latest_release = '' THEN NULL ELSE TRY_CAST(latest_release AS DATE) END,
 			CASE WHEN eol = '' THEN NULL ELSE TRY_CAST(eol AS DATE) END
-		FROM details_temp`)
+		FROM details_temp
+		ORDER BY product_id`)
 	if err != nil {
 		log.Error().Err(err).Msg("Error inserting data into 'details' table")
 		return err
@@ -692,7 +693,15 @@ func createProductIdentifiersTable(db *sql.DB, allData *allProductsData) error {
 		log.Error().Err(err).Msg("Error iterating over product rows")
 		return err
 	}
-	// Insert product identifiers for each product in the database
+
+	// Collect all product identifiers
+	type identifierEntry struct {
+		productID       string
+		identifierType  string
+		identifierValue string
+	}
+	var allIdentifiers []identifierEntry
+
 	for _, productID := range productIDs {
 		if prodData, exists := allData.Products[productID]; exists {
 			for _, identifier := range prodData.Identifiers {
@@ -702,17 +711,44 @@ func createProductIdentifiersTable(db *sql.DB, allData *allProductsData) error {
 					identifierValue = "https://repology.org/project/" + identifier.ID
 				}
 
-				_, err = db.Exec(`INSERT INTO product_identifiers (product_id, identifier_type, identifier_value)
-						VALUES (?, ?, ?)`,
-					productID,
-					identifier.Type,
-					identifierValue,
-				)
-				if err != nil {
-					log.Error().Err(err).Msgf("Error inserting identifier %s for product %s", identifier.ID, productID)
-				}
+				allIdentifiers = append(allIdentifiers, identifierEntry{
+					productID:       productID,
+					identifierType:  identifier.Type,
+					identifierValue: identifierValue,
+				})
 			}
 		}
+	}
+
+	// Sort product identifiers by product_id using DuckDB
+	// First insert all data into a temporary table, then insert sorted
+	_, err = db.Exec(`CREATE TEMP TABLE IF NOT EXISTS product_identifiers_temp (
+			product_id TEXT,
+			identifier_type TEXT,
+			identifier_value TEXT
+		)`)
+	if err != nil {
+		log.Error().Err(err).Msg("Error creating product_identifiers_temp table")
+		return err
+	}
+
+	for _, entry := range allIdentifiers {
+		_, err = db.Exec(`INSERT INTO product_identifiers_temp (product_id, identifier_type, identifier_value) VALUES (?, ?, ?)`,
+			entry.productID,
+			entry.identifierType,
+			entry.identifierValue,
+		)
+		if err != nil {
+			log.Error().Err(err).Msgf("Error inserting identifier into temp table")
+		}
+	}
+
+	// Insert from temp table sorted by product_id
+	_, err = db.Exec(`INSERT INTO product_identifiers (product_id, identifier_type, identifier_value) 
+		SELECT product_id, identifier_type, identifier_value FROM product_identifiers_temp ORDER BY product_id`)
+	if err != nil {
+		log.Error().Err(err).Msg("Error inserting sorted product identifiers")
+		return err
 	}
 
 	log.Info().Msg("Created and populated \"product_identifiers\" table")
