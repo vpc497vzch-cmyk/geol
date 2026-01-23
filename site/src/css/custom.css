@@ -231,4 +231,37 @@ img[draggable="true"] { draggable: false; }
   user-select: none;
 }
 
+/* Blog sidebar: prevent text selection like footer/docs */
+.blog-sidebar-no-select,
+.blog-sidebar-no-select * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Watermark overlay to discourage easy copying (non-destructive) */
+.hero,
+.features_t9lD {
+  position: relative;
+}
+.hero::after,
+.features_t9lD::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url('/img/watermark.svg');
+  background-repeat: repeat;
+  background-position: center;
+  background-size: 180px 60px;
+  opacity: 0.08;
+  mix-blend-mode: multiply;
+}
+
+@media (max-width: 768px) {
+  .hero::after, .features_t9lD::after { display: none; }
+}
+
 

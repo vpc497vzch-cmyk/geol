@@ -50,3 +50,5 @@ geol-build/
 .docusaurus/
 build/
 rapport.pdf
+# Drafts folder (ignored)
+Brouillon/
