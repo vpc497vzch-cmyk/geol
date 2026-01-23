@@ -510,18 +510,55 @@ func createProductsTable(db *sql.DB, allData *allProductsData) error {
 		return err
 	}
 
-	// Insert product data from pre-fetched data
+	// Collect all products
+	type productEntry struct {
+		id         string
+		label      string
+		categoryID string
+		uri        string
+	}
+	var allProductsSlice []productEntry
+
 	for _, prodData := range allData.Products {
-		_, err = db.Exec(`INSERT INTO products (id, label, category_id, uri) 
-				VALUES (?, ?, ?, ?)`,
-			prodData.Name,
-			prodData.Label,
-			prodData.Category,
-			prodData.URI,
+		allProductsSlice = append(allProductsSlice, productEntry{
+			id:         prodData.Name,
+			label:      prodData.Label,
+			categoryID: prodData.Category,
+			uri:        prodData.URI,
+		})
+	}
+
+	// Sort products by id using DuckDB
+	// First insert all data into a temporary table, then insert sorted
+	_, err = db.Exec(`CREATE TEMP TABLE IF NOT EXISTS products_temp (
+			id TEXT,
+			label TEXT,
+			category_id TEXT,
+			uri TEXT
+		)`)
+	if err != nil {
+		log.Error().Err(err).Msg("Error creating products_temp table")
+		return err
+	}
+
+	for _, entry := range allProductsSlice {
+		_, err = db.Exec(`INSERT INTO products_temp (id, label, category_id, uri) VALUES (?, ?, ?, ?)`,
+			entry.id,
+			entry.label,
+			entry.categoryID,
+			entry.uri,
 		)
 		if err != nil {
-			log.Error().Err(err).Msgf("Error inserting product data for %s", prodData.Name)
+			log.Error().Err(err).Msgf("Error inserting product %s into temp table", entry.id)
 		}
+	}
+
+	// Insert from temp table sorted by id
+	_, err = db.Exec(`INSERT INTO products (id, label, category_id, uri) 
+		SELECT id, label, category_id, uri FROM products_temp ORDER BY id`)
+	if err != nil {
+		log.Error().Err(err).Msg("Error inserting sorted products")
+		return err
 	}
 
 	log.Info().Msg("Created and populated \"products\" table")
@@ -784,16 +821,47 @@ func createTagsTable(db *sql.DB, allTags map[string]utilities.Tag) error {
 		return err
 	}
 
-	// Insert tags data
+	// Collect all tags
+	type tagEntry struct {
+		id  string
+		uri string
+	}
+	var allTagsSlice []tagEntry
+
 	for _, tag := range allTags {
-		_, err = db.Exec(`INSERT INTO tags (id, uri) 
-				VALUES (?, ?)`,
-			tag.Name,
-			tag.Uri,
+		allTagsSlice = append(allTagsSlice, tagEntry{
+			id:  tag.Name,
+			uri: tag.Uri,
+		})
+	}
+
+	// Sort tags by id using DuckDB
+	// First insert all data into a temporary table, then insert sorted
+	_, err = db.Exec(`CREATE TEMP TABLE IF NOT EXISTS tags_temp (
+			id TEXT,
+			uri TEXT
+		)`)
+	if err != nil {
+		log.Error().Err(err).Msg("Error creating tags_temp table")
+		return err
+	}
+
+	for _, entry := range allTagsSlice {
+		_, err = db.Exec(`INSERT INTO tags_temp (id, uri) VALUES (?, ?)`,
+			entry.id,
+			entry.uri,
 		)
 		if err != nil {
-			log.Error().Err(err).Msgf("Error inserting tag %s", tag.Name)
+			log.Error().Err(err).Msgf("Error inserting tag %s into temp table", entry.id)
 		}
+	}
+
+	// Insert from temp table sorted by id
+	_, err = db.Exec(`INSERT INTO tags (id, uri) 
+		SELECT id, uri FROM tags_temp ORDER BY id`)
+	if err != nil {
+		log.Error().Err(err).Msg("Error inserting sorted tags")
+		return err
 	}
 
 	log.Info().Msg("Created and populated \"tags\" table")
@@ -907,18 +975,49 @@ func createProductTagsTable(db *sql.DB, allData *allProductsData) error {
 		return err
 	}
 
-	// Insert product-tag relationships
+	// Collect all product-tag relationships
+	type productTagEntry struct {
+		productID string
+		tagID     string
+	}
+	var allProductTags []productTagEntry
+
 	for _, prodData := range allData.Products {
 		for _, tag := range prodData.Tags {
-			_, err = db.Exec(`INSERT INTO product_tags (product_id, tag_id) 
-					VALUES (?, ?)`,
-				prodData.Name,
-				tag.Name,
-			)
-			if err != nil {
-				log.Error().Err(err).Msgf("Error inserting product-tag relationship for product %s and tag %s", prodData.Name, tag.Name)
-			}
+			allProductTags = append(allProductTags, productTagEntry{
+				productID: prodData.Name,
+				tagID:     tag.Name,
+			})
 		}
+	}
+
+	// Sort product-tag relationships by product_id using DuckDB
+	// First insert all data into a temporary table, then insert sorted
+	_, err = db.Exec(`CREATE TEMP TABLE IF NOT EXISTS product_tags_temp (
+			product_id TEXT,
+			tag_id TEXT
+		)`)
+	if err != nil {
+		log.Error().Err(err).Msg("Error creating product_tags_temp table")
+		return err
+	}
+
+	for _, entry := range allProductTags {
+		_, err = db.Exec(`INSERT INTO product_tags_temp (product_id, tag_id) VALUES (?, ?)`,
+			entry.productID,
+			entry.tagID,
+		)
+		if err != nil {
+			log.Error().Err(err).Msgf("Error inserting product-tag into temp table")
+		}
+	}
+
+	// Insert from temp table sorted by product_id
+	_, err = db.Exec(`INSERT INTO product_tags (product_id, tag_id) 
+		SELECT product_id, tag_id FROM product_tags_temp ORDER BY product_id`)
+	if err != nil {
+		log.Error().Err(err).Msg("Error inserting sorted product-tags")
+		return err
 	}
 
 	log.Info().Msg("Created and populated \"product_tags\" table")
