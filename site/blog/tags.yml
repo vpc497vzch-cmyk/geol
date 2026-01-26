@@ -17,3 +17,78 @@ hola:
   label: Hola
   permalink: /hola
   description: Hola tag description
+
+video:
+  label: Video
+  permalink: /video
+  description: Posts containing embedded videos or video demos
+
+export:
+  label: Export
+  permalink: /export
+  description: Posts about exporting data, e.g., export to DuckDB
+
+mvp:
+  label: MVP
+  permalink: /mvp
+  description: Posts about MVPs and early demos
+
+check:
+  label: Check
+  permalink: /check
+  description: Posts related to the `check` command and demos
+
+distrobox:
+  label: Distrobox
+  permalink: /distrobox
+  description: Posts related to distrobox and related tutorials
+
+demo:
+  label: Demo
+  permalink: /demo
+  description: Demo videos and product demonstrations
+
+endoflife:
+  label: EndOfLife
+  permalink: /endoflife
+  description: Content related to endoflife.date and lifecycle management
+
+eol:
+  label: EOL
+  permalink: /eol
+  description: Posts concerning the `eol` CLI and related tooling
+
+hackathon:
+  label: Hackathon
+  permalink: /hackathon
+  description: Hackathon sessions, live-coding and quick prototypes
+
+go:
+  label: Go
+  permalink: /go
+  description: Go language related posts, libraries and tooling
+
+copilot:
+  label: Copilot
+  permalink: /copilot
+  description: Posts about GitHub Copilot usage or demos
+
+duckdb:
+  label: DuckDB
+  permalink: /duckdb
+  description: Posts about DuckDB usage and exports
+
+ci-cd:
+  label: CI-CD
+  permalink: /ci-cd
+  description: Continuous Integration and Continuous Deployment topics
+
+release:
+  label: Release
+  permalink: /release
+  description: Release notes and full edition announcements
+
+unboxing:
+  label: Unboxing
+  permalink: /unboxing
+  description: Unboxing and demo-style videos

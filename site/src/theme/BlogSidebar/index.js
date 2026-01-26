@@ -30,13 +30,7 @@ export default function BlogSidebar() {
           </ul>
         </div>
 
-        <div role="group">
-          <h3 className="yearGroupHeading_rMGB">2021</h3>
-          <ul className="sidebarItemList_Yudw clean-list">
-            <li className="sidebarItem__DBe"><a className="sidebarItemLink_mo7H" href="/blog/welcome">Welcome</a></li>
-            <li className="sidebarItem__DBe"><a className="sidebarItemLink_mo7H" href="/blog/mdx-blog-post">MDX Blog Post</a></li>
-          </ul>
-        </div>
+        
       </nav>
     </aside>
   );
