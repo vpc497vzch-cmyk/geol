@@ -54,6 +54,7 @@ const config = {
 
   clientModules: [
     require.resolve('./src/js/no-image-drag.js'),
+    require.resolve('./src/js/lazy-images-client.js'),
   ],
 
   themeConfig:
