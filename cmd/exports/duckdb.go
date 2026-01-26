@@ -427,6 +427,7 @@ func createDetailsTable(db *sql.DB) error {
 			latest TEXT,
 			latest_release_date DATE,
 			eol_date DATE,
+			PRIMARY KEY (product_id, cycle),
 			FOREIGN KEY (product_id) REFERENCES products(id)
 		)`)
 	if err != nil {
