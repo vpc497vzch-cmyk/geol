@@ -1,10 +1,11 @@
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
+import Translate, {translate} from '@docusaurus/Translate';
 import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to use',
+    title: translate({id: 'homepage.feature.easy.title', message: 'Easy to use'}),
     Svg: (props) => (
       <img
         {...props}
@@ -14,13 +15,15 @@ const FeatureList = [
     ),
     description: (
       <>
-        <code>geol</code> was designed be easily installed and
-        used to get you ready and efficient with software end-of-life management.
+        <code>geol</code>{' '}
+        <Translate id="homepage.feature.easy.description">
+          was designed be easily installed and used to get you ready and efficient with software end-of-life management.
+        </Translate>
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: translate({id: 'homepage.feature.focus.title', message: 'Focus on What Matters'}),
     Svg: (props) => (
       <img
         {...props}
@@ -30,13 +33,15 @@ const FeatureList = [
     ),
     description: (
       <>
-        <code>geol</code> lets you focus on software end-of-life management, 
-        exporting useful reports while we handle the data gathering and processing.
+        <code>geol</code>{' '}
+        <Translate id="homepage.feature.focus.description">
+          lets you focus on software end-of-life management, exporting useful reports while we handle the data gathering and processing.
+        </Translate>
       </>
     ),
   },
   {
-    title: 'Powered by Go',
+    title: translate({id: 'homepage.feature.go.title', message: 'Powered by Go'}),
     Svg: (props) => (
       <img
         {...props}
@@ -46,9 +51,13 @@ const FeatureList = [
     ),
     description: (
       <>
-        Built with the Go programming language, <code>geol</code> is a fast,
-        efficient, and reliable tool for managing software end-of-life information on
-        any platform.
+        <Translate id="homepage.feature.go.description">
+          Built with the Go programming language,
+        </Translate>{' '}
+        <code>geol</code>{' '}
+        <Translate id="homepage.feature.go.description_tail">
+          is a fast, efficient, and reliable tool for managing software end-of-life information on any platform.
+        </Translate>
       </>
     ),
   },

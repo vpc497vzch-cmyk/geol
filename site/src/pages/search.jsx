@@ -3,18 +3,41 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import Fuse from 'fuse.js';
 import './search.css';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 export default function SearchPage() {
   const [index, setIndex] = useState([]);
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
+  const { siteConfig, i18n } = useDocusaurusContext();
 
   useEffect(() => {
-    fetch('/search-index.json')
-      .then(r => r.json())
-      .then(data => setIndex(data))
-      .catch(() => setIndex([]));
-  }, []);
+    const baseUrl = (siteConfig && siteConfig.baseUrl) ? siteConfig.baseUrl.replace(/\/$/, '') : '';
+    const currentLocale = i18n?.currentLocale || (typeof window !== 'undefined' && window.location && window.location.pathname.split('/')?.[1]) || 'en';
+    const defaultLocale = i18n?.defaultLocale || 'en';
+
+    const candidates = [];
+    if (currentLocale && currentLocale !== defaultLocale) candidates.push(`${baseUrl}/${currentLocale}/search-index.json`);
+    candidates.push(`${baseUrl}/search-index.json`);
+
+    // try candidates in order until one succeeds
+    (async () => {
+      for (const p of candidates) {
+        try {
+          const res = await fetch(p);
+          if (!res.ok) continue;
+          const data = await res.json();
+          if (Array.isArray(data) && data.length > 0) { setIndex(data); return; }
+          // accept empty index but continue to try fallback if empty
+          if (Array.isArray(data)) { setIndex(data); }
+        } catch (e) {
+          // try next
+        }
+      }
+      // fallback to empty
+      setIndex([]);
+    })();
+  }, [siteConfig, i18n]);
 
   useEffect(() => {
     if (!query || index.length === 0) { setResults([]); return; }

@@ -55,6 +55,8 @@ const config = {
   clientModules: [
     require.resolve('./src/js/no-image-drag.js'),
     require.resolve('./src/js/lazy-images-client.js'),
+    require.resolve('./src/js/locale-fallback.js'),
+    require.resolve('./src/js/left-panel-toggle.js'),
   ],
 
   themeConfig:
@@ -77,7 +79,7 @@ const config = {
               ],
           },
           { href: 'https://github.com/opt-nc/geol', label: 'GitHub', position: 'right' },
-          { type: 'localeDropdown', position: 'right' },
+          { type: 'localeDropdown', position: 'right', className: 'only-icon-locale' },
         ],
       },
       footer: {

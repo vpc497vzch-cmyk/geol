@@ -1,10 +1,15 @@
 import React from 'react';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 export default function BlogSidebar() {
+  const {i18n} = useDocusaurusContext();
+  const locale = (i18n && i18n.currentLocale) || 'en';
+  const title = locale.startsWith('fr') ? 'Articles récents' : 'Recent posts';
+
   return (
     <aside className="col col--3">
       <nav className="sidebar_re4s thin-scrollbar blog-sidebar-no-select" aria-label="Blog recent posts navigation">
-        <div className="sidebarItemTitle_pO2u margin-bottom--md">Recent posts</div>
+        <div className="sidebarItemTitle_pO2u margin-bottom--md">{title}</div>
 
         <div role="group">
           <h3 className="yearGroupHeading_rMGB">2026</h3>

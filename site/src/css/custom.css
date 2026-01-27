@@ -92,6 +92,15 @@
   transform: translateX(0);
 }
 
+/* Also open the panel when the dropdown is programmatically shown (click/tap) or focused */
+.left-panel-dropdown.dropdown--show .dropdown__menu,
+.left-panel-dropdown.dropdown--show .dropdown-menu,
+.left-panel-dropdown:focus-within .dropdown__menu,
+.left-panel-dropdown:focus-within .dropdown-menu {
+  transform: translateX(0);
+  pointer-events: all;
+}
+
 /* Ensure links inside are readable */
 .left-panel-dropdown .dropdown__menu a,
 .left-panel-dropdown .dropdown-menu a {
@@ -231,6 +240,24 @@ img[draggable="true"] { draggable: false; }
   user-select: none;
 }
 
+/* Show a single '#' anchor on hover for h2 headings in markdown content */
+.markdown h2 { position: relative; }
+.markdown h2 .hash-link,
+.markdown h2 a.anchor,
+.markdown h2 a.hash-link {
+  opacity: 0;
+  transition: opacity 120ms ease-in-out;
+  color: var(--ifm-color-primary-dark);
+  text-decoration: none;
+  margin-left: 0.25rem;
+}
+.markdown h2:hover .hash-link,
+.markdown h2:hover a.anchor,
+.markdown h2:focus-within .hash-link,
+.markdown h2:focus-within a.anchor {
+  opacity: 1;
+}
+
 /* Blog sidebar: prevent text selection like footer/docs */
 .blog-sidebar-no-select,
 .blog-sidebar-no-select * {
@@ -263,5 +290,46 @@ img[draggable="true"] { draggable: false; }
 @media (max-width: 768px) {
   .hero::after, .features_t9lD::after { display: none; }
 }
+
+/* Hide the language label next to the language icon in the navbar.
+   Keep the icon visible and the dropdown items unchanged. */
+.theme-layout-navbar .navbar__item.dropdown > .navbar__link:has(.iconLanguage_nlXk) {
+  font-size: 0; /* hide adjacent text nodes */
+}
+.theme-layout-navbar .navbar__item.dropdown > .navbar__link:has(.iconLanguage_nlXk) svg {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Prefer a safe selector using the added navbar class `only-icon-locale` */
+.navbar__item.only-icon-locale > .navbar__link {
+  font-size: 0; /* hide adjacent text */
+}
+.navbar__item.only-icon-locale > .navbar__link svg {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Also handle case where the `only-icon-locale` class ends up on the anchor itself */
+.navbar__link.only-icon-locale {
+  font-size: 0; /* hide adjacent text nodes */
+}
+.navbar__link.only-icon-locale svg {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Nudge the locale icon slightly upward to align with the system mode toggle */
+.navbar__item.only-icon-locale > .navbar__link svg,
+.navbar__link.only-icon-locale svg {
+  transform: translateY(-8px);
+}
+
 
 
