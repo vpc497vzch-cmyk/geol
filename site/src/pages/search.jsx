@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
+import Translate, { translate } from '@docusaurus/Translate';
 import Fuse from 'fuse.js';
 import './search.css';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -127,17 +128,17 @@ export default function SearchPage() {
   }, [query, index]);
 
   return (
-    <Layout title="Search">
+    <Layout title={translate({id: 'theme.search.title', message: 'Search'})}>
       <main className="container margin-vert--lg">
-        <h1>Search</h1>
+        <h1><Translate id="theme.search.heading">Search</Translate></h1>
         <div className="search-box">
-          <input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search docs..." />
+          <input value={query} onChange={e=>setQuery(e.target.value)} placeholder={translate({id: 'theme.search.placeholder', message: 'Search docs...'})} />
           {query && (
-            <button className="search-clear" onClick={() => setQuery('')} aria-label="Clear search">×</button>
+            <button className="search-clear" onClick={() => setQuery('')} aria-label={translate({id: 'theme.search.clearAria', message: 'Clear search'})}>×</button>
           )}
         </div>
         <div className="search-results">
-          {results.length === 0 && query && <p>No results</p>}
+          {results.length === 0 && query && <p><Translate id="theme.search.noResults">No results</Translate></p>}
           {results.map((r, i) => (
             <div key={i} className="search-result-item">
               <h3><Link to={r.url}>{r.title}</Link></h3>
