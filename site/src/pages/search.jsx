@@ -11,6 +11,7 @@ export default function SearchPage() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const { siteConfig, i18n } = useDocusaurusContext();
+  const currentLocaleForRender = i18n?.currentLocale || (typeof window !== 'undefined' && window.location && window.location.pathname.split('/')?.[1]) || 'en';
 
   useEffect(() => {
     const baseUrl = (siteConfig && siteConfig.baseUrl) ? siteConfig.baseUrl.replace(/\/$/, '') : '';
@@ -128,17 +129,27 @@ export default function SearchPage() {
   }, [query, index]);
 
   return (
-    <Layout title={translate({id: 'theme.search.title', message: 'Search'})}>
+    <Layout title={currentLocaleForRender && currentLocaleForRender.startsWith('fr') ? 'Recherche' : translate({id: 'theme.search.title', message: 'Search'})}>
       <main className="container margin-vert--lg">
-        <h1><Translate id="theme.search.heading">Search</Translate></h1>
+        <h1>{currentLocaleForRender && currentLocaleForRender.startsWith('fr') ? 'Recherche' : <Translate id="theme.search.heading">Search</Translate>}</h1>
         <div className="search-box">
-          <input value={query} onChange={e=>setQuery(e.target.value)} placeholder={translate({id: 'theme.search.placeholder', message: 'Search docs...'})} />
+          <input
+            value={query}
+            onChange={e=>setQuery(e.target.value)}
+            placeholder={currentLocaleForRender && currentLocaleForRender.startsWith('fr') ? 'Rechercher dans la documentation...' : translate({id: 'theme.search.placeholder', message: 'Search docs...'})}
+          />
           {query && (
-            <button className="search-clear" onClick={() => setQuery('')} aria-label={translate({id: 'theme.search.clearAria', message: 'Clear search'})}>×</button>
+            <button
+              className="search-clear"
+              onClick={() => setQuery('')}
+              aria-label={currentLocaleForRender && currentLocaleForRender.startsWith('fr') ? 'Effacer la recherche' : translate({id: 'theme.search.clearAria', message: 'Clear search'})}
+            >
+              ×
+            </button>
           )}
         </div>
         <div className="search-results">
-          {results.length === 0 && query && <p><Translate id="theme.search.noResults">No results</Translate></p>}
+          {results.length === 0 && query && <p>{currentLocaleForRender && currentLocaleForRender.startsWith('fr') ? 'Aucun résultat' : <Translate id="theme.search.noResults">No results</Translate>}</p>}
           {results.map((r, i) => (
             <div key={i} className="search-result-item">
               <h3><Link to={r.url}>{r.title}</Link></h3>
