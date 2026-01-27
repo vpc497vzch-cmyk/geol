@@ -328,7 +328,7 @@ img[draggable="true"] { draggable: false; }
 /* Nudge the locale icon slightly upward to align with the system mode toggle */
 .navbar__item.only-icon-locale > .navbar__link svg,
 .navbar__link.only-icon-locale svg {
-  transform: translateY(-8px);
+  transform: translateY(-4px);
 }
 
 
