@@ -34,6 +34,13 @@ function frontMatterTitle(content) {
   return null;
 }
 
+function frontMatterHasUnlisted(content) {
+  const m = content.match(/^---\s*([\s\S]*?)\s*---/);
+  if (!m) return false;
+  const fm = m[1];
+  return /(^|\n)[ \t]*unlisted:\s*true\b/.test(fm);
+}
+
 function stripMarkdown(md) {
   return md
     .replace(/```(?:\w*\n)?([\s\S]*?)```/g, '$1')
@@ -93,12 +100,25 @@ function buildIndex() {
     ];
 
     for (const src of sources) {
-      const files = walk(src.dir);
+      // collect localized files first
+      let files = walk(src.dir);
+      // if locale has no translations for some docs/pages, include fallback default files
+      if (locale !== defaultLocale) {
+        const fallbackDir = (src.prefix === '/docs/') ? docsDir : pagesDir;
+        const localizedRels = new Set(files.map(f => path.relative(src.dir, f).replace(/\\\\/g, '/')));
+        const fallbackFiles = walk(fallbackDir);
+        for (const ff of fallbackFiles) {
+          const rel = path.relative(fallbackDir, ff).replace(/\\\\/g, '/');
+          if (!localizedRels.has(rel)) files.push(ff);
+        }
+      }
       console.log('locale', locale, 'source', src.dir, 'found files', files.length);
       for (const f of files) {
         const raw = fs.readFileSync(f, 'utf8');
+        // skip unlisted placeholders
+        if (frontMatterHasUnlisted(raw)) continue;
         const nofm = stripFrontMatter(raw);
-        if (/This page has been removed\.\.|Removed: the Markdown page/.test(raw)) continue;
+        if (/This page has been removed\.|Removed: the Markdown page/.test(raw)) continue;
         let rel = path.relative(src.dir, f).replace(/\\\\/g, '/').replace(/index\.mdx?$/,'').replace(/\.mdx?$/,'');
         let baseUrl = path.posix.join(src.prefix, rel || '/');
         if (!baseUrl.startsWith('/')) baseUrl = '/' + baseUrl;
@@ -106,7 +126,13 @@ function buildIndex() {
         const contentTitle = titleFromContent(nofm, f);
         const title = fmTitle || contentTitle || path.basename(f, path.extname(f));
         const text = stripMarkdown(nofm);
-        const pageUrl = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';
+        let pageUrl = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';
+        // For non-default locales, ensure URLs are prefixed with the locale (e.g. /fr/docs/...)
+        if (locale !== defaultLocale) {
+          // use posix join to avoid duplicate slashes
+          pageUrl = path.posix.join('/', locale, pageUrl);
+          if (!pageUrl.endsWith('/')) pageUrl = pageUrl + '/';
+        }
         const excludePaths = ['/blog/2021-08-26-welcome', '/blog/welcome'];
         if (excludePaths.some(p => pageUrl.startsWith(p))) continue;
         items.push({ title, text, url: pageUrl });

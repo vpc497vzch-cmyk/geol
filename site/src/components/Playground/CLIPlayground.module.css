@@ -1,0 +1,45 @@
+.wrapper{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  align-items:stretch;
+  margin:16px 0;
+}
+.terminal{
+  background:var(--ifm-color-emphasis-0,#0b1220);
+  color:var(--ifm-color-emphasis-900,#e6eef8);
+  border-radius:8px;
+  width:100%;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.4);
+  overflow:hidden;
+}
+.screen{ padding:12px; max-height:520px; overflow:auto; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace; font-size:13px}
+.entry{ margin-bottom:8px }
+.prompt{ color:var(--ifm-color-primary-400,#8bd3c7); }
+.output{ margin:4px 0 0 8px; white-space:pre; overflow:auto }
+
+/* Slight offset for the `geol about` output to avoid overlap */
+/* removed aboutEntry/aboutOutput styles to restore default terminal layout */
+.inputRow{ display:flex; border-top:1px solid rgba(255,255,255,0.04) }
+.input{ flex:1; padding:10px; border:0; background:transparent; color:inherit }
+.run{ background:var(--ifm-color-primary); color:white; padding:8px 12px; border:0 }
+.examples{ width:100%; background:var(--ifm-background-surface); padding:12px; border-radius:8px }
+.exampleItem{ display:flex; align-items:center; justify-content:space-between; gap:8px; margin:8px 0 }
+.code{ background:transparent; padding:4px 6px; border-radius:4px; font-family: ui-monospace, monospace }
+.btnSmall{ margin-left:6px; padding:6px 8px; border-radius:6px; border:1px solid rgba(0,0,0,0.08); background:#fff }
+.buttons{ display:flex; gap:6px }
+
+.commands{ width:100%; background:var(--ifm-color-emphasis-0,#071018); color:var(--ifm-color-emphasis-900,#e6eef8); padding:12px; border-radius:8px }
+.commandsTitle{ font-weight:700; margin-bottom:8px }
+.commandGrid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:8px }
+.commandItem{ display:flex; align-items:center; justify-content:space-between; gap:8px; padding:8px; background:rgba(255,255,255,0.02); border-radius:6px }
+.note{ margin-top:10px; font-size:13px; color:var(--ifm-color-emphasis-700,#cdd7df) }
+
+/* Slight visual offset for the 'geol about' command in the Available commands grid */
+.aboutCmd{ transform: translateX(28px); }
+@media (max-width:600px){
+  .aboutCmd{ transform: none }
+}
+
+/* Shift the visual position of the 'geol about' command to the right */
+/* removed aboutCmd translation to keep commands grid uniform */
