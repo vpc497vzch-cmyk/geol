@@ -31,14 +31,18 @@
 
 .commands{ width:100%; background:var(--ifm-color-emphasis-0,#071018); color:var(--ifm-color-emphasis-900,#e6eef8); padding:12px; border-radius:8px }
 .commandsTitle{ font-weight:700; margin-bottom:8px }
-.commandGrid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:8px }
-.commandItem{ display:flex; align-items:center; justify-content:space-between; gap:8px; padding:8px; background:rgba(255,255,255,0.02); border-radius:6px }
+.commandGrid{ display:flex; flex-direction:column; gap:10px }
+.commandItem{ display:flex; flex-direction:row; align-items:center; justify-content:space-between; gap:12px; padding:10px; background:rgba(255,255,255,0.02); border-radius:6px; width:100% }
+.commandItem .code{ flex:1; min-width:0 }
+.code{ background:transparent; padding:4px 6px; border-radius:4px; font-family: ui-monospace, monospace; word-break:break-word }
+.buttons{ display:flex; gap:6px; flex-shrink:0; margin-left:12px }
 .note{ margin-top:10px; font-size:13px; color:var(--ifm-color-emphasis-700,#cdd7df) }
 
 /* Slight visual offset for the 'geol about' command in the Available commands grid */
-.aboutCmd{ transform: translateX(28px); }
+/* ensure one-command-per-line on small screens */
 @media (max-width:600px){
-  .aboutCmd{ transform: none }
+  .commandItem{ flex-direction:column; align-items:flex-start }
+  .buttons{ align-self:flex-end; margin-top:8px }
 }
 
 /* Shift the visual position of the 'geol about' command to the right */
