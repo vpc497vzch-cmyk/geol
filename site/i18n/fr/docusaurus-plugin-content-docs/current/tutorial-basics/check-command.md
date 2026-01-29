@@ -3,7 +3,7 @@ sidebar_position: 3
 ---
 
 # Apprendre la commande `check`
-Vérifiez rapidement l'état de fin de vie (EOL) de votre pile.
+Vérifiez rapidement si les composants de votre environnement logiciel sont en fin de vie (EOL) ou s'en approchent.
 
 ## Initialiser un fichier de check
 
@@ -54,8 +54,8 @@ geol check
 > - Is Latest : indique si cette version est la dernière connue.
 > - Latest : la dernière version connue pour le produit.
 >
-> **Significations des statuts**
-> - OK — supporté et pas proche de la EOL.
-> - WARN — approche de la EOL (dans `days_warn`).
+> **Signification des statuts**
+> - OK — supporté et pas proche de la fin de vie.
+> - WARN — approche de la fin de vie (dans `days_warn`).
 > - EOL — la version est passée en fin de vie ; mise à jour recommandée.
-> - UNKNOWN — pas de date EOL disponible pour cette version.
+> - UNKNOWN — pas de date de fin de vie disponible pour cette version.

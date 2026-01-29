@@ -1,24 +1,4 @@
 ---
-title: Releases
----
-
-import AnchorFallback from '@site/src/components/AnchorFallback';
-
-<AnchorFallback />
-
----
-title: Versions
----
-
-import AnchorFallback from '@site/src/components/AnchorFallback';
-
-<AnchorFallback />
-
-<h2 id="v251--2026-01-07">v2.5.1 — 2026-01-07 <a class="hash-link" href="#v251--2026-01-07">#</a></h2>
-- Date : 2026-01-07
-- Version : 2.5.1
-
----
 title: Versions
 ---
 

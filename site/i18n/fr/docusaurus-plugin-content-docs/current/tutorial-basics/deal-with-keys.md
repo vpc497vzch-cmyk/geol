@@ -4,21 +4,23 @@ sidebar_position: 1
 
 # Connaître les clés `endoflife.date` avec geol
 
-Il existe de nombreuses clés utilisées par endoflife.date ; elles associent les produits à des métadonnées telles que versions, dates de sortie et dates de fin de vie.
+Il existe de nombreuses clés utilisées par endoflife.date ; elles associent aux produits des métadonnées telles que les versions, les dates de sortie et les dates de fin de vie.
 
 ## Produits
 
-Un produit est un élément géré par geol (par exemple : Windows, Ubuntu, iPhone...).
+Un produit est un élément géré par `geol` (par exemple : Windows, Ubuntu, iPhone...).
 
 ```shell
-geol list products    # liste les produits disponibles 
+```shell
+geol list products    # liste les produits disponibles
 geol help product     # affiche toutes les commandes pour un produit spécifique
+```
 ```
 Pour choisir le nombre de cycles de versions à afficher, utilisez `extended` avec l'option `-n`. Par exemple :
 ```shell
 geol product extended <product-name> -n20
 ```
-Cela affiche les 20 cycles de versions les plus récents (chacun avec sa date de sortie), listant typiquement la dernière version pour chaque cycle en premier.
+Cela affiche les 20 cycles de versions les plus récents (chacun avec sa date de sortie), la dernière version de chaque cycle étant généralement affichée en premier.
 
 ## Catégories
 

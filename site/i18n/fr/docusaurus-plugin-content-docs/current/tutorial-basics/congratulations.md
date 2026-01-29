@@ -4,15 +4,15 @@ sidebar_position: 6
 
 # Félicitations !
 
-Vous venez d'apprendre les **bases de `geol`**
+Vous venez d'apprendre les **bases de `geol`**.
 
-`geol` **a encore beaucoup à offrir** !
+`geol` offre encore de nombreuses fonctionnalités.
 
-Vous avez **5 minutes de plus** ? Jetez un œil au Tutoriel avancé.
+Vous avez cinq minutes de plus ? Consultez le tutoriel avancé.
 
-Quelque chose d'**ambigu** ou de **bogué** dans ce tutoriel ? [Veuillez le signaler !](https://github.com/opt-nc/geol)
+Quelque chose d'ambigu ou un bug dans ce tutoriel ? [Signalez‑le ici.](https://github.com/opt-nc/geol)
 
 ## Et ensuite ?
 
-- Lisez la documentation officielle
-- Participez à la communauté `geol` (voir le dépôt GitHub)
+- Consultez la documentation officielle.
+- Participez à la communauté `geol` (voir le dépôt GitHub).

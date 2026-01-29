@@ -44,7 +44,7 @@
     "description": "The label of the link targeting the tag list page"
   },
   "theme.colorToggle.ariaLabel.mode.system": {
-    "message": "system mode",
+    "message": "mode système",
     "description": "The name for the system color mode"
   },
   "theme.colorToggle.ariaLabel.mode.light": {
@@ -179,11 +179,11 @@
     "description": "The ARIA label to collapse the sidebar category"
   },
   "theme.IconExternalLink.ariaLabel": {
-    "message": "(opens in new tab)",
+    "message": "(s'ouvre dans un nouvel onglet)",
     "description": "The ARIA label for the external link icon"
   },
   "theme.NavBar.navAriaLabel": {
-    "message": "Main",
+    "message": "Navigation principale",
     "description": "The ARIA label for the main navigation"
   },
   "theme.NotFound.p1": {
@@ -243,7 +243,7 @@
     "description": "The title attribute for collapse button of doc sidebar"
   },
   "theme.docs.sidebar.navAriaLabel": {
-    "message": "Docs sidebar",
+    "message": "Barre latérale de la documentation",
     "description": "The ARIA label for the sidebar navigation"
   },
   "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
@@ -259,11 +259,11 @@
     "description": "The ARIA label for hamburger menu button of mobile navigation"
   },
   "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
-    "message": "Expand the dropdown",
+    "message": "Développer le menu",
     "description": "The ARIA label of the button to expand the mobile dropdown navbar item"
   },
   "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
-    "message": "Collapse the dropdown",
+    "message": "Réduire le menu",
     "description": "The ARIA label of the button to collapse the mobile dropdown navbar item"
   },
   "theme.docs.sidebar.expandButtonTitle": {
@@ -287,15 +287,15 @@
     "description": "The title of the page for a blog author"
   },
   "theme.blog.authorsList.pageTitle": {
-    "message": "Authors",
+    "message": "Auteurs",
     "description": "The title of the authors page"
   },
   "theme.blog.authorsList.viewAll": {
-    "message": "View All Authors",
+    "message": "Voir tous les auteurs",
     "description": "The label of the link targeting the blog authors page"
   },
   "theme.blog.author.noPosts": {
-    "message": "This author has not written any posts yet.",
+    "message": "Cet auteur n'a pas encore publié d'articles.",
     "description": "The text for authors with 0 blog post"
   },
   "theme.contentVisibility.unlistedBanner.title": {
@@ -307,11 +307,11 @@
     "description": "The unlisted content banner message"
   },
   "theme.contentVisibility.draftBanner.title": {
-    "message": "Draft page",
+    "message": "Page en brouillon",
     "description": "The draft content banner title"
   },
   "theme.contentVisibility.draftBanner.message": {
-    "message": "This page is a draft. It will only be visible in dev and be excluded from the production build.",
+    "message": "Cette page est un brouillon. Elle n'apparaîtra qu'en développement et sera exclue de la version de production.",
     "description": "The draft content banner message"
   },
   "theme.ErrorPageContent.tryAgain": {
@@ -339,12 +339,25 @@
     "message": "a été conçu pour être facilement installé et utilisé afin de vous rendre opérationnel et efficace dans la gestion de la fin de vie des logiciels."
   },
   "homepage.feature.focus.description": {
-    "message": "vous permet de vous concentrer sur la gestion de la fin de vie des logiciels, en exportant des rapports utiles pendant que nous nous chargeons de la collecte et du traitement des données."
+    "message": "vous permet de vous concentrer sur la gestion de la fin de vie des logiciels en exportant des rapports utiles pendant que nous nous chargeons de la collecte et du traitement des données."
   },
   "homepage.feature.go.description": {
-    "message": "Développé avec le langage Go,"
+    "message": "Développé en Go,"
   },
   "homepage.feature.go.description_tail": {
     "message": "est un outil rapide, efficace et fiable pour gérer les informations de fin de vie des logiciels sur toutes les plateformes."
+  }
+,
+  "homepage.feature.easy.alt": {
+    "message": "Cliquer souris",
+    "description": "Alt text for the easy feature image"
+  },
+  "homepage.feature.focus.alt": {
+    "message": "Image centrale",
+    "description": "Alt text for the focus feature image"
+  },
+  "homepage.feature.go.alt": {
+    "message": "Langage Go",
+    "description": "Alt text for the Go feature image"
   }
 }

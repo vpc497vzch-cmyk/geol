@@ -34,6 +34,15 @@ function frontMatterTitle(content) {
   return null;
 }
 
+function frontMatterField(content, field) {
+  const m = content.match(/^---\s*([\s\S]*?)\s*---/);
+  if (!m) return null;
+  const fm = m[1];
+  const re = new RegExp('^[ \\t]*' + field + ':\s*(?:"|\')?(.+?)(?:"|\')?\s*$', 'm');
+  const t = fm.match(re);
+  return t ? t[1].trim() : null;
+}
+
 function frontMatterHasUnlisted(content) {
   const m = content.match(/^---\s*([\s\S]*?)\s*---/);
   if (!m) return false;
@@ -50,6 +59,11 @@ function stripMarkdown(md) {
     .replace(/^[>\-\*\+]\s+/gm, '')
     .replace(/`+/g, '')
     .replace(/~+/g, '')
+    // remove emphasis markers **bold**, *italic*, __bold__, _italic_
+    .replace(/\*\*(.*?)\*\*/g, '$1')
+    .replace(/__(.*?)__/g, '$1')
+    .replace(/\*(.*?)\*/g, '$1')
+    .replace(/_(.*?)_/g, '$1')
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -117,7 +131,9 @@ function buildIndex() {
         const raw = fs.readFileSync(f, 'utf8');
         // skip unlisted placeholders
         if (frontMatterHasUnlisted(raw)) continue;
-        const nofm = stripFrontMatter(raw);
+        let nofm = stripFrontMatter(raw);
+        // remove MDX/JS import lines to avoid indexing them (e.g. "import X from '...' ;")
+        nofm = nofm.replace(/^[ \t]*import\s.+?;[ \t]*$/gm, '');
         if (/This page has been removed\.|Removed: the Markdown page/.test(raw)) continue;
         let rel = path.relative(src.dir, f).replace(/\\\\/g, '/').replace(/index\.mdx?$/,'').replace(/\.mdx?$/,'');
         let baseUrl = path.posix.join(src.prefix, rel || '/');
@@ -126,6 +142,29 @@ function buildIndex() {
         const contentTitle = titleFromContent(nofm, f);
         const title = fmTitle || contentTitle || path.basename(f, path.extname(f));
         const text = stripMarkdown(nofm);
+        let summary = text.slice(0, 300).trim();
+        // Provide a better preview for the CLI playground page
+        if (/cli-playground/.test(path.basename(f))) {
+          if (locale && locale.toLowerCase().startsWith('fr')) {
+            summary = "Voici un terminal vous permettant d'essayer quelques commandes et d'avoir le rendu exact de ce que vous pourriez avoir.";
+          } else {
+            summary = "Here is a terminal allowing you to try a few commands and see the kind of output you might get.";
+          }
+        }
+        const fmDescription = frontMatterField(raw, 'description') || null;
+        const fmTagsRaw = frontMatterField(raw, 'tags') || frontMatterField(raw, 'keywords') || null;
+        // parse tags if present as YAML list or comma-separated
+        let tags = null;
+        if (fmTagsRaw) {
+          try {
+            // simple comma-separated fallback
+            if (/\[.*\]/.test(fmTagsRaw)) {
+              tags = fmTagsRaw.replace(/^[\s\[]+|[\]\s]+$/g, '').split(/,\s*/).map(s=>s.replace(/['"]/g,'').trim()).filter(Boolean);
+            } else {
+              tags = fmTagsRaw.split(/,\s*/).map(s=>s.replace(/['"]/g,'').trim()).filter(Boolean);
+            }
+          } catch (e) { tags = null; }
+        }
         let pageUrl = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';
         // For non-default locales, ensure URLs are prefixed with the locale (e.g. /fr/docs/...)
         if (locale !== defaultLocale) {
@@ -135,7 +174,7 @@ function buildIndex() {
         }
         const excludePaths = ['/blog/2021-08-26-welcome', '/blog/welcome'];
         if (excludePaths.some(p => pageUrl.startsWith(p))) continue;
-        items.push({ title, text, url: pageUrl });
+        items.push({ title, text, url: pageUrl, summary: fmDescription || summary, tags: tags || [], locale, type: src.prefix.replace(/\//g,'') || 'page' });
 
         const lines = nofm.split(/\r?\n/);
         for (let i = 0; i < lines.length; i++) {
@@ -157,7 +196,7 @@ function buildIndex() {
             const block = stripMarkdown(collected.join('\n'));
             const slug = slugify(heading);
             const headingUrl = pageUrl.endsWith('/') ? pageUrl + '#' + slug : pageUrl + '/#' + slug;
-            items.push({ title: heading, text: block, url: headingUrl });
+            items.push({ title: heading, text: block, url: headingUrl, summary: block.slice(0,200), tags: [], locale, type: src.prefix.replace(/\//g,'') || 'page' });
           }
         }
       }

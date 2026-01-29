@@ -8,9 +8,9 @@ Découvrons **geol en moins de 5 minutes**.
 
 ## Commencer
 
-Commencez par **installer avec <code>brew</code>**.
+Commencez par installer `geol` avec Homebrew.
 
-Remarque : Homebrew fournit souvent des paquets plus à jour que d'autres sources, donc l'installation via `brew` vous donnera généralement une version plus récente.
+Remarque : Homebrew fournit souvent des paquets plus à jour que d'autres sources, donc l'installation via `brew` vous donnera généralement une version plus récente.
 
 ### Ce dont vous aurez besoin
 

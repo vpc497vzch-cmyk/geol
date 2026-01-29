@@ -520,7 +520,9 @@ export default function CLIPlayground({examples}){
     copied: isFr ? 'Copié' : 'Copied',
     examples: isFr ? 'Exemples' : 'Examples',
     available: isFr ? 'Commandes disponibles' : 'Available commands',
-    note: isFr ? "Seules les commandes affichées ci-dessous peuvent être utilisées dans ce terminal simulé. Les autres commandes ne sont pas disponibles ici — installez geol sur votre machine pour exécuter toutes les commandes localement." : "Only the commands displayed below can be used in this simulated terminal. Other commands are not available here — please install geol on your machine to run all commands locally."
+    note: isFr ? "Seules les commandes affichées ci-dessous peuvent être utilisées dans ce terminal simulé. Les autres commandes ne sont pas disponibles ici — installez geol sur votre machine pour exécuter toutes les commandes localement." : "Only the commands displayed below can be used in this simulated terminal. Other commands are not available here — please install geol on your machine to run all commands locally.",
+    cliInput: isFr ? 'Entrée du terminal' : 'CLI input',
+    cliRegion: isFr ? 'Terminal interactif' : 'CLI playground',
   };
 
   function runCommand(cmd){
@@ -550,7 +552,7 @@ export default function CLIPlayground({examples}){
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.terminal} role="region" aria-label="CLI playground">
+      <div className={styles.terminal} role="region" aria-label={t.cliRegion}>
         <div className={styles.screen}>
           {history.map((h, i)=> (
             <div key={i} className={styles.entry}>
@@ -561,12 +563,12 @@ export default function CLIPlayground({examples}){
           <div ref={endRef} />
         </div>
         <form className={styles.inputRow} onSubmit={(e)=>{e.preventDefault(); runCommand(input)}}>
-          <input className={styles.input} value={input} onChange={(e)=>setInput(e.target.value)} placeholder="Type a command (eg. geol check)" aria-label="CLI input" />
+          <input className={styles.input} value={input} onChange={(e)=>setInput(e.target.value)} placeholder={isFr? 'Tapez une commande (ex. geol check)': 'Type a command (eg. geol check)'} aria-label={t.cliInput} />
           <button className={styles.run} type="submit">{t.run}</button>
         </form>
       </div>
       {/* Examples panel rendered below the terminal */}
-      <div className={styles.examples} aria-label="Examples">
+      <div className={styles.examples} aria-label={t.examples}>
         {(() => {
           const hidden = new Set(['geol check', 'geol version', 'geol product extended windows -n5']);
           const visible = (examples || []).filter(e => !hidden.has(e));
@@ -583,7 +585,7 @@ export default function CLIPlayground({examples}){
           ));
         })()}
       </div>
-      <div className={styles.commands} aria-label="Available commands">
+      <div className={styles.commands} aria-label={t.available}>
         <div className={styles.commandsTitle}>{t.available}</div>
         <div className={styles.commandGrid}>
           {availableCommands.map((cmd, i)=> (

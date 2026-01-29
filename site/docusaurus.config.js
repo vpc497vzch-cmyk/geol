@@ -61,6 +61,12 @@ const config = {
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */ ({
+      metadata: [
+        {name: 'description', content: 'geol — manage software end-of-life and track supported versions.'},
+        {name: 'og:site_name', content: 'geol'},
+        {name: 'og:type', content: 'website'},
+        {name: 'twitter:card', content: 'summary_large_image'},
+      ],
       image: 'img/docusaurus-social-card.jpg',
       colorMode: { respectPrefersColorScheme: true },
       navbar: {
@@ -97,7 +103,7 @@ const config = {
           },
           { title: 'More', items: [{ label: 'Blog', to: '/blog' }, { label: 'GitHub', href: 'https://github.com/opt-nc/geol' }] },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} geol contributors. Built with Docusaurus.`,
       },
       prism: { theme: prismThemes.github, darkTheme: prismThemes.dracula },
     }),

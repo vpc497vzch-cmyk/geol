@@ -10,7 +10,7 @@ const FeatureList = [
       <img
         {...props}
         src={require('@site/static/img/mouse-cursor-click-icon-png-ojcVeq.png').default}
-        alt="Click mouse"
+        alt={translate({id: 'homepage.feature.easy.alt', message: 'Click mouse'})}
       />
     ),
     description: (
@@ -28,7 +28,7 @@ const FeatureList = [
       <img
         {...props}
         src={require('@site/static/img/Img_central_sans_dino.png').default}
-        alt="Central image"
+        alt={translate({id: 'homepage.feature.focus.alt', message: 'Central image'})}
       />
     ),
     description: (
@@ -46,7 +46,7 @@ const FeatureList = [
       <img
         {...props}
         src={require('@site/static/img/go_transparent.png').default}
-        alt="Go language"
+        alt={translate({id: 'homepage.feature.go.alt', message: 'Go language'})}
       />
     ),
     description: (
