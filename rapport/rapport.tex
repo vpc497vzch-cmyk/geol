@@ -175,14 +175,91 @@ Travail accompli en priorité pour rendre le site plus accessible et faciliter l
   \item Ajustement du bouton de sélection de la langue — correction et reformulation de l'interface si nécessaire.
 \end{itemize}
 
+\subsection*{Travaux réalisés -- Mercredi 28 janvier 2026}
+\begin{itemize}
+  \item Ajout d'un menu interactif permettant d'essayer \texttt{geol} sans l'installer.
+  \item Correction et résolution de divers bogues signalés.
+\end{itemize}
+
+\subsection*{Travaux réalisés -- Jeudi 29 janvier 2026}
+\begin{itemize}
+  \item Réorganisation de l'affichage des commandes disponibles.
+  \item Terminal (i18n et accessibilité) : localisation des attributs \texttt{aria-label} et du \emph{placeholder} dans \texttt{CLIPlayground.jsx} pour les versions FR/EN.
+  \item Images de la page d'accueil : rendu des attributs \texttt{alt} traduisibles dans \texttt{index.js} et ajout des traductions FR dans \texttt{code.json}.
+  \item Traductions de l'interface (FR) : corrections de formulations et résolution d'une erreur JSON dans \texttt{code.json}.
+  \item Pages traduites (Releases) : suppression des frontmatters dupliqués et nettoyage du fichier \texttt{site-src-pages-releases-md-7ef.md}.
+  \item Documentation FR (tutoriels) : relecture et amélioration de la fluidité des fichiers sous le dossier \texttt{current}.
+  \item SEO : ajout de meta‑tags de base dans \texttt{docusaurus.config.js}.
+  \item Recherche / index : enrichissement du script \texttt{generate-search-index.js} avec les champs \texttt{summary}, \texttt{tags}, \texttt{locale} et \texttt{type}.
+\end{itemize}
+
+\subsection*{Travaux réalisés -- Vendredi 30 janvier 2026}
+\begin{itemize}
+  \item Intervention sur deux sites externes (data centers de Nouville et de Montravel) : ajout de disques durs et remplacement d'une pièce indispensable au fonctionnement d'un relais entre les deux sites.
+  \item Correction d'erreurs typographiques, de commentaires et de lignes de code issues d'un ticket fourni par Vin.
+\end{itemize}
+
 \chapter{Résultats}
 Présenter les résultats obtenus, tableaux et figures.
+
+Les actions menées durant le stage ont permis d'atteindre plusieurs résultats concrets et vérifiables sur le dépôt du site :
+
+\begin{itemize}
+  \item Amélioration de la lisibilité et de la navigation des pages de tutoriel (reformulation et réorganisation des sections clefs).
+  \item Mise en place d'un index de recherche local plus robuste (ajout de champs \texttt{summary}, \texttt{tags}, \texttt{locale} et \texttt{type}), réduisant les doublons et améliorant la découvrabilité.
+  \item Internationalisation et corrections FR : plusieurs pages traduites et reformulées, ainsi que des corrections de traduction UI (fichier \texttt{code.json}).
+  \item Clarifications fonctionnelles : modification des pages décrivant le comportement de \texttt{geol} (ex. précision que \texttt{geol} ne stocke pas les métadonnées, et précision sur la commande \texttt{geol export}).
+  \item Nettoyage et standardisation : suppression de frontmatters dupliqués et retrait de fichiers temporaires non pertinents.
+  \item Exemple de configuration : mise à jour des exemples de configuration (fichier d'exemple `.geol.yaml` dans la documentation tutorielle).
+\end{itemize}
+
+\bigskip
+\noindent \textbf{Vérification et tests locaux}
+
+Les changements ont été testés localement via des builds successifs du site (commande de build Docusaurus). Les principales vérifications effectuées : rendu des pages modifiées, génération des fichiers `site/static` et `site/build`, contrôle des entrées de l'index de recherche et cohérence des traductions FR/EN.
+
+\bigskip
+\noindent \textbf{Tableau récapitulatif (livrables)}
+
+\begin{center}
+\begin{tabular}{p{0.45\linewidth} p{0.45\linewidth}}
+\toprule
+Élément modifié & Description brève \\
+\midrule
+Pages tutoriels & Réécriture, réorganisation et correction FR/EN \\
+Search index & Ajout de summaries/tags/locale/type et nettoyage des doublons \\
+Interface & Traductions UI et support des alt traduisibles pour les images \\
+Examples & Mise à jour des exemples de configuration et commandes \\
+Build & Builds locaux validés (fr + en) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\bigskip
+Les fichiers générés et modifiés sont disponibles dans le dépôt ; pour une revue détaillée, voir le journal des commits correspondant.
 
 \chapter{Analyse et discussion}
 Interprétation des résultats et limites.
 
+L'intervention a permis d'améliorer la qualité perçue de la documentation et de la navigation pour des utilisateurs non techniques. En particulier, la recherche locale est désormais plus complète et renvoie des résultats moins bruités, ce qui facilite la découverte de commandes et d'exemples.
+
+Limites et points à surveiller :
+\begin{itemize}
+  \item Certaines modifications touchent des fichiers générés (`site/static`, `site/build`) : il est recommandé d'automatiser le processus de build en CI pour éviter des divergences manuelles.
+  \item Les captures d'écran et preuves visuelles n'ont pas été incluses ici : il faudra les ajouter dans la version finale du rapport pour illustrer les corrections de bugs et le rendu visuel.
+  \item Tests automatisés : l'absence de suite de tests côté documentation rend les régressions possibles lors de futures modifications ; un pipeline de validation (linting, build + vérification d'index) est recommandé.
+\end{itemize}
+
 \chapter{Conclusion et perspectives}
 Synthèse et pistes pour continuer le travail.
+
+En conclusion, les travaux menés ont rendu le site \texttt{geol} plus accessible et mieux documenté, avec des améliorations notables sur la recherche locale, la cohérence des traductions et la clarté des tutoriels. Pour aller plus loin, je recommande :
+\begin{itemize}
+  \item Mettre en place une intégration continue (CI) qui exécute le build du site et vérifie l'indexation à chaque push.
+  \item Ajouter une petite suite de tests et des checkers (liens morts, validations i18n) afin de détecter automatiquement les régressions.
+  \item Compléter le rapport par des captures d'écran et des exemples de sortie (logs) pour illustrer les corrections apportées.
+  \item Automatiser la génération de l'index de recherche lors du build pour garantir l'alignement entre sources et fichiers statiques.
+\end{itemize}
 
 % --- Annexes ---
 \appendix

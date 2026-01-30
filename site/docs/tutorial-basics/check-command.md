@@ -18,10 +18,10 @@ Edit the generated `.geol.yaml` to list the products you want to monitor.
 Minimal example `.geol.yaml` (created by `geol check init`):
 
 ```yaml
-products:
-  - name: ubuntu
-  - name: maven
-days_warn: 30
+stack:
+  - name: Go
+    version: "1.25"
+    id_eol: go
 ```
 
 ## Statuses and warnings
@@ -56,6 +56,6 @@ geol check
 >
 > **Status meanings**
 > - OK — supported and not close to EOL.
-> - WARN — approaching EOL (within `days_warn`).
+> - WARN — approaching EOL (less than 30 days).
 > - EOL — past its end-of-life date; update recommended.
 > - UNKNOWN — no EOL date available for this version.

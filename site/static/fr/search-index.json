@@ -9,27 +9,18 @@
     "type": "docs"
   },
   {
-    "title": "Introduction au tutoriel",
-    "text": "Introduction au tutoriel Découvrons geol en moins de 5 minutes. Commencer Commencez par installer geol avec Homebrew. Remarque : Homebrew fournit souvent des paquets plus à jour que d'autres sources, donc l'installation via brew vous donnera généralement une version plus récente. Ce dont vous aurez besoin brew installé sur votre machine. Voir le site officiel Homebrew pour les instructions d'installation. brew install --cask opt-nc/homebrew-tap/geol Remarque : si l'installation via brew échoue, c'est peut-être parce que curl fourni par Homebrew n'est pas installé et que votre distribution utilise le curl du système (apt). Go go install github.com/opt-nc/geol@latest Script Shell curl -fsSL https://raw.githubusercontent.com/opt-nc/geol/main/install.sh | bash Obtenir la version de geol geol version En savoir plus sur geol geol about Obtenir de l'aide geol help man geol",
+    "title": "Commencez maintenant?",
+    "text": "Commencez maintenant? Découvrons geol en moins de 5 minutes. Commencez par installer geol avec Homebrew. Remarque : Homebrew fournit souvent des paquets plus à jour que d'autres sources, donc l'installation via brew vous donnera généralement une version plus récente. Comment installer? brew installé sur votre machine. Voir le site officiel Homebrew pour les instructions d'installation. brew install --cask opt-nc/homebrew-tap/geol Remarque : si l'installation via brew échoue, c'est peut-être parce que curl fourni par Homebrew n'est pas installé et que votre distribution utilise le curl du système (apt). Go go install github.com/opt-nc/geol@latest Script Shell curl -fsSL https://raw.githubusercontent.com/opt-nc/geol/main/install.sh | bash Obtenir la version de geol geol version En savoir plus sur geol geol about Obtenir de l'aide geol help man geol",
     "url": "/fr/docs/intro/",
-    "summary": "Introduction au tutoriel Découvrons geol en moins de 5 minutes. Commencer Commencez par installer geol avec Homebrew. Remarque : Homebrew fournit souvent des paquets plus à jour que d'autres sources, donc l'installation via brew vous donnera généralement une version plus récente. Ce dont vous aurez",
+    "summary": "Commencez maintenant? Découvrons geol en moins de 5 minutes. Commencez par installer geol avec Homebrew. Remarque : Homebrew fournit souvent des paquets plus à jour que d'autres sources, donc l'installation via brew vous donnera généralement une version plus récente. Comment installer? brew installé",
     "tags": [],
     "locale": "fr",
     "type": "docs"
   },
   {
-    "title": "Commencer",
-    "text": "Commencez par installer geol avec Homebrew.",
-    "url": "/fr/docs/intro/#commencer",
-    "summary": "Commencez par installer geol avec Homebrew.",
-    "tags": [],
-    "locale": "fr",
-    "type": "docs"
-  },
-  {
-    "title": "Ce dont vous aurez besoin",
+    "title": "Comment installer?",
     "text": "brew installé sur votre machine. Voir le site officiel Homebrew pour les instructions d'installation.",
-    "url": "/fr/docs/intro/#ce-dont-vous-aurez-besoin",
+    "url": "/fr/docs/intro/#comment-installer",
     "summary": "brew installé sur votre machine. Voir le site officiel Homebrew pour les instructions d'installation.",
     "tags": [],
     "locale": "fr",
@@ -64,7 +55,7 @@
   },
   {
     "title": "Apprendre la commande `check`",
-    "text": "Apprendre la commande check Vérifiez rapidement si les composants de votre environnement logiciel sont en fin de vie (EOL) ou s'en approchent. Initialiser un fichier de check Exécutez la commande pour créer un modèle .geol.yaml dans le répertoire courant : geol check init Éditez le .geol.yaml généré pour lister les produits que vous souhaitez surveiller. Exemple minimal de .geol.yaml (créé par geol check init) : products: - name: ubuntu - name: maven days_warn: 30 Statuts et avertissements Lancez la vérification pour afficher les statuts et les avertissements : geol check Exemple de sortie (ce que geol check affiche) : Software │ Version │ EOL Date │ Status │ Days │ Is Latest │ Latest ───────────────┼─────────┼─────────────┼────────┼────────┼───────────┼-------- maven │ 3.6 │ 2021-03-30 │ EOL │ -1756 │ false │ 3.9 quarkus │ 3.12 │ 2024-07-31 │ EOL │ -537 │ false │ 3.30 traefik │ 2.11 │ 2026-02-01 │ WARN │ 12 │ false │ 3.6 ubuntu │ 25.10 │ 2026-07-01 │ OK │ 162 │ true │ 25.10 postgresql │ 14 │ 2026-11-12 │ OK │ 296 │ false │ 18 java temurin │ 21 │ 2029-12-31 │ OK │ 1441 │ false │ 25 opensearch │ 2 │ │ OK │ - │ false │ 3 Légende — champs affichés dans l'exemple Champs de sortie - Software : nom du produit (ex. ubuntu). - Version : la version rapportée ou configurée. - EOL Date : date de fin de vie connue (vide si inconnue). - Status : OK, WARN, EOL, ou UNKNOWN. - Days : jours avant la EOL (positif) ou depuis la EOL (négatif) ; - si inconnu. - Is Latest : indique si cette version est la dernière connue. - Latest : la dernière version connue pour le produit. Signification des statuts - OK — supporté et pas proche de la fin de vie. - WARN — approche de la fin de vie (dans days_warn). - EOL — la version est passée en fin de vie ; mise à jour recommandée. - UNKNOWN — pas de date de fin de vie disponible pour cette version.",
+    "text": "Apprendre la commande check Vérifiez rapidement si les composants de votre environnement logiciel sont en fin de vie (EOL) ou s'en approchent. Initialiser un fichier de check Exécutez la commande pour créer un modèle .geol.yaml dans le répertoire courant : geol check init Éditez le .geol.yaml généré pour lister les produits que vous souhaitez surveiller. Exemple minimal de .geol.yaml (créé par geol check init) : stack: - name: Go version: \"1.25\" id_eol: go Statuts et avertissements Lancez la vérification pour afficher les statuts et les avertissements : geol check Exemple de sortie (ce que geol check affiche) : Software │ Version │ EOL Date │ Status │ Days │ Is Latest │ Latest ───────────────┼─────────┼─────────────┼────────┼────────┼───────────┼-------- maven │ 3.6 │ 2021-03-30 │ EOL │ -1756 │ false │ 3.9 quarkus │ 3.12 │ 2024-07-31 │ EOL │ -537 │ false │ 3.30 traefik │ 2.11 │ 2026-02-01 │ WARN │ 12 │ false │ 3.6 ubuntu │ 25.10 │ 2026-07-01 │ OK │ 162 │ true │ 25.10 postgresql │ 14 │ 2026-11-12 │ OK │ 296 │ false │ 18 java temurin │ 21 │ 2029-12-31 │ OK │ 1441 │ false │ 25 opensearch │ 2 │ │ OK │ - │ false │ 3 Légende — champs affichés dans l'exemple Champs de sortie - Software : nom du produit (ex. ubuntu). - Version : la version rapportée ou configurée. - EOL Date : date de fin de vie connue (vide si inconnue). - Status : OK, WARN, EOL, ou UNKNOWN. - Days : jours avant la EOL (positif) ou depuis la EOL (négatif) ; - si inconnu. - Is Latest : indique si cette version est la dernière connue. - Latest : la dernière version connue pour le produit. Signification des statuts - OK — supporté et pas proche de la fin de vie. - WARN — approche de la fin de vie (moins de 30 jours). - EOL — la version est passée en fin de vie ; mise à jour recommandée. - UNKNOWN — pas de date de fin de vie disponible pour cette version.",
     "url": "/fr/docs/tutorial-basics/check-command/",
     "summary": "Apprendre la commande check Vérifiez rapidement si les composants de votre environnement logiciel sont en fin de vie (EOL) ou s'en approchent. Initialiser un fichier de check Exécutez la commande pour créer un modèle .geol.yaml dans le répertoire courant : geol check init Éditez le .geol.yaml généré",
     "tags": [],
@@ -109,18 +100,18 @@
   },
   {
     "title": "Connaître les clés `endoflife.date` avec geol",
-    "text": "Connaître les clés endoflife.date avec geol Il existe de nombreuses clés utilisées par endoflife.date ; elles associent aux produits des métadonnées telles que les versions, les dates de sortie et les dates de fin de vie. Produits Un produit est un élément géré par geol (par exemple : Windows, Ubuntu, iPhone...). shell geol list products # liste les produits disponibles geol help product # affiche toutes les commandes pour un produit spécifique Pour choisir le nombre de cycles de versions à afficher, utilisez extended avec l'option -n. Par exemple : geol product extended -n20 Cela affiche les 20 cycles de versions les plus récents (chacun avec sa date de sortie), la dernière version de chaque cycle étant généralement affichée en premier. Catégories Une catégorie regroupe des produits liés (par exemple : bibliothèques, runtimes). geol list categories Tags Un tag est un mot-clé court utilisé pour étiqueter et filtrer les produits. geol list tags",
+    "text": "Connaître les clés endoflife.date avec geol Il existe de nombreuses clés utilisées par endoflife.date ; elles associent aux produits des métadonnées telles que les versions, les dates de sortie et les dates de fin de vie. Produits Un produit est défini par l'API endoflife.date ; geol utilise cette API et ne définit pas les produits lui-même (par exemple : Windows, Ubuntu, iPhone...). geol list products # liste les produits disponibles geol help product # affiche les commandes pour un produit spécifique Pour choisir le nombre de cycles de versions à afficher, utilisez extended avec l'option -n. Par exemple : geol product extended -n20 Cela affiche les 20 cycles de versions les plus récents (chacun avec sa date de sortie), la dernière version de chaque cycle est toujours affichée en premier. Catégories Une catégorie regroupe des produits liés (par exemple : bibliothèques, runtimes). geol list categories Tags Un tag est un mot-clé court utilisé pour étiqueter et filtrer les produits. geol list tags",
     "url": "/fr/docs/tutorial-basics/deal-with-keys/",
-    "summary": "Connaître les clés endoflife.date avec geol Il existe de nombreuses clés utilisées par endoflife.date ; elles associent aux produits des métadonnées telles que les versions, les dates de sortie et les dates de fin de vie. Produits Un produit est un élément géré par geol (par exemple : Windows, Ubunt",
+    "summary": "Connaître les clés endoflife.date avec geol Il existe de nombreuses clés utilisées par endoflife.date ; elles associent aux produits des métadonnées telles que les versions, les dates de sortie et les dates de fin de vie. Produits Un produit est défini par l'API endoflife.date ; geol utilise cette A",
     "tags": [],
     "locale": "fr",
     "type": "docs"
   },
   {
     "title": "Produits",
-    "text": "Un produit est un élément géré par geol (par exemple : Windows, Ubuntu, iPhone...).",
+    "text": "Un produit est défini par l'API endoflife.date ; geol utilise cette API et ne définit pas les produits lui-même (par exemple : Windows, Ubuntu, iPhone...).",
     "url": "/fr/docs/tutorial-basics/deal-with-keys/#produits",
-    "summary": "Un produit est un élément géré par geol (par exemple : Windows, Ubuntu, iPhone...).",
+    "summary": "Un produit est défini par l'API endoflife.date ; geol utilise cette API et ne définit pas les produits lui-même (par exemple : Windows, Ubuntu, iPhone...).",
     "tags": [],
     "locale": "fr",
     "type": "docs"
@@ -172,9 +163,9 @@
   },
   {
     "title": "Générer des rapports avec `geol`",
-    "text": "Générer des rapports avec geol geol stocke des métadonnées pour chaque produit (versions, dates de sortie et dates de fin de vie) et permet de générer des résumés, des listes de versions ou des rapports exportables. Obtenir un aperçu d'un produit Commandes courantes : geol product describe # résumé détaillé d'un produit geol export # exporter des rapports (voir la doc export)",
+    "text": "Générer des rapports avec geol geol récupère les informations produits (versions, dates de sortie et de fin de vie) et les affiche, ce qui permet de générer des résumés, des listes de versions ou d’exporter des rapports. Obtenir un aperçu d'un produit Commandes courantes : geol product describe # résumé détaillé d'un produit geol export # exporte les informations produits vers une base DuckDB",
     "url": "/fr/docs/tutorial-basics/reporting-in-termial/",
-    "summary": "Générer des rapports avec geol geol stocke des métadonnées pour chaque produit (versions, dates de sortie et dates de fin de vie) et permet de générer des résumés, des listes de versions ou des rapports exportables. Obtenir un aperçu d'un produit Commandes courantes : geol product describe # résumé",
+    "summary": "Générer des rapports avec geol geol récupère les informations produits (versions, dates de sortie et de fin de vie) et les affiche, ce qui permet de générer des résumés, des listes de versions ou d’exporter des rapports. Obtenir un aperçu d'un produit Commandes courantes : geol product describe # ré",
     "tags": [],
     "locale": "fr",
     "type": "docs"
@@ -207,10 +198,10 @@
     "type": "docs"
   },
   {
-    "title": "Ingénierie des données avec `geol`",
-    "text": "Ingénierie des données avec geol Data Engineering with geol explique comment collecter, normaliser et analyser les métadonnées produits (versions, dates de sortie, dates de fin de vie) pour des analyses en aval. Il couvre l'ingestion, le stockage, les requêtes et les flux d'export (CSV, DuckDB) pour construire des pipelines ETL reproductibles et des rapports.",
+    "title": "Data Engineering with `geol`",
+    "text": "Data Engineering with geol Data Engineering with geol explique comment collecter, normaliser et analyser les métadonnées produits (versions, dates de sortie, dates de fin de vie) pour des analyses en aval. Il couvre l'ingestion, le stockage, les requêtes et les flux d'export (CSV, DuckDB) pour construire des pipelines ETL reproductibles et des rapports.",
     "url": "/fr/docs/tutorial-extras/dataengineering/",
-    "summary": "Ingénierie des données avec geol Data Engineering with geol explique comment collecter, normaliser et analyser les métadonnées produits (versions, dates de sortie, dates de fin de vie) pour des analyses en aval. Il couvre l'ingestion, le stockage, les requêtes et les flux d'export (CSV, DuckDB) pour",
+    "summary": "Data Engineering with geol Data Engineering with geol explique comment collecter, normaliser et analyser les métadonnées produits (versions, dates de sortie, dates de fin de vie) pour des analyses en aval. Il couvre l'ingestion, le stockage, les requêtes et les flux d'export (CSV, DuckDB) pour const",
     "tags": [],
     "locale": "fr",
     "type": "docs"

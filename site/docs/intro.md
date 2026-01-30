@@ -2,17 +2,15 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Getting Started?
 
 Let's discover **geol in less than 5 minutes**.
-
-## Getting Started
 
 Get started by **installing with <code>brew</code>**.
 
 Note: Homebrew often provides more up-to-date packages than other sources, so installing via `brew` will typically give you a newer version.
 
-### What you'll need
+### How to install?
 
 - <code>brew</code> installed on your machine. See the official <a href="https://brew.sh/" target="_blank" rel="noreferrer noopener">Homebrew website</a> for installation instructions.
 

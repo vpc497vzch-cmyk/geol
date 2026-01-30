@@ -18,10 +18,10 @@ geol check init
 Exemple minimal de `.geol.yaml` (créé par `geol check init`) :
 
 ```yaml
-products:
-  - name: ubuntu
-  - name: maven
-days_warn: 30
+stack:
+  - name: Go
+    version: "1.25"
+    id_eol: go
 ```
 
 ## Statuts et avertissements
@@ -56,6 +56,6 @@ geol check
 >
 > **Signification des statuts**
 > - OK — supporté et pas proche de la fin de vie.
-> - WARN — approche de la fin de vie (dans `days_warn`).
+> - WARN — approche de la fin de vie (moins de 30 jours).
 > - EOL — la version est passée en fin de vie ; mise à jour recommandée.
 > - UNKNOWN — pas de date de fin de vie disponible pour cette version.
